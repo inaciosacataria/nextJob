@@ -18,7 +18,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="@drawable/grad">
 
         <TextView
             android:id="@+id/txvTitleJobMain"
@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Senior UX Designer"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -39,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="$40-90k/year"
+            android:text="no salary info"
             android:textColor="#737373"
             app:layout_constraintStart_toStartOf="@+id/txvTitleJobMain"
             app:layout_constraintTop_toBottomOf="@+id/txvTitleJobMain" />
@@ -59,7 +58,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="Full Time"
                 android:textColor="#FBF7F7" />
         </androidx.cardview.widget.CardView>
 
@@ -87,7 +85,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
-            android:text="Google Inc. "
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="@+id/cardView3"
             app:layout_constraintStart_toEndOf="@+id/cardView3"
@@ -97,7 +94,6 @@
             android:id="@+id/txvLocationMain"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="San Francico"
             android:textColor="#737373"
             app:layout_constraintEnd_toStartOf="@+id/txvtimeMain"
             app:layout_constraintHorizontal_bias="0.0"

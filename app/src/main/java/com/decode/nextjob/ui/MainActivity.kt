@@ -55,16 +55,14 @@ class MainActivity : AppCompatActivity() {
 
     fun observeData(){
 
-        shimer.startShimmer()
 
-        /*
+        shimer.startShimmer()
         mayMainVM.fectchRemoteJobsData().observe(this, Observer {
 
            remoteJobAdapter.setListData(it)
             shimer.stopShimmer()
             remoteJobAdapter.notifyDataSetChanged()
         })
-        *
-         */
+
     }
 }

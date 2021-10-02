@@ -44,7 +44,10 @@ class RemoteJobAdapter (var c:Context ): RecyclerView.Adapter<RemoteJobAdapter.M
     }
 
     override fun getItemCount(): Int {
-       return dataList.size
+        if (dataList.size!=0){
+            return 5
+        }
+      return  dataList.size
     }
 
 
@@ -59,14 +62,16 @@ class RemoteJobAdapter (var c:Context ): RecyclerView.Adapter<RemoteJobAdapter.M
             itemView.txvComitmentMain.setText(job.commitment.title)
             itemView.txvCompanyMain.setText(job.company?.name)
 
-            var location = if (job.locationNames?.toString()!!.length==0) "no location" else job.locationNames
-            itemView.txvLocationMain.setText(location)
+            var location = if (job.locationNames?.toString()!!.isEmpty()) {
+                "no location"
+            } else job.locationNames
+            itemView.txvLocationMain.text=(location)
 
             var logoUrl=job.company?.logoUrl
 
             if (logoUrl != null) {
-                if (logoUrl.isEmpty())
-                    Glide.with(c).load(logoUrl).into(img)
+                if (logoUrl.isNotEmpty())
+                    Glide.with(c).load(logoUrl).into(itemView.imgCompanyNameMain)
                 else
                     img.setImageResource(R.drawable.ic_companylogosvg)
             }
