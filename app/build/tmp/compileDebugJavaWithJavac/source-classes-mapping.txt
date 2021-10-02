@@ -1,0 +1,2 @@
+com/decode/nextjob/BuildConfig.java
+ com.decode.nextjob.BuildConfig

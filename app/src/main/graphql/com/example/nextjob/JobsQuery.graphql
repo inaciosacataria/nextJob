@@ -1,0 +1,18 @@
+query JobsQuery{
+    jobs {
+        id
+        title
+       locationNames
+       postedAt
+        description
+        applyUrl
+
+        company{
+           name
+            logoUrl
+        }
+        commitment{
+            title
+        }
+    }
+}

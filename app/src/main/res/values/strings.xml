@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">nextjob</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua. Curabitur vitae nunc sed velit dignissim. Phasellus egestas tellus rutrum tellus pellentesque eu.
+        Urna duis convallis convallis tellus id interdum. Nunc mattis enim ut tellus elementum sagittis. Non curabitur gravida
+        arcu ac tortor dignissim convallis aenean. Ultrices gravida dictum fusce ut placerat. Dui vivamus arcu felis bibendum ut
+        tristique et egestas quis. Porta lorem mollis aliquam ut porttitor leo a diam. Augue eget arcu dictum varius duis at consectetur.
+        Egestas diam in arcu cursus euismod quis viverra nibh cras. In fermentum et sollicitudin ac orci phasellus egestas tellus.
+        Sodales ut eu sem integer vitae justo eget magna fermentum. Augue eget arcu dictum varius duis at. Ut placerat orci nulla
+        pellentesque dignissim enim. Euismod in pellentesque massa placerat duis ultricies lacus sed.</string>
+
+    <string name="serverUrl">"https://api.graphql.jobs/"</string>
+</resources>

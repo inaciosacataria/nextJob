@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="16dp"
+    app:cardBackgroundColor="#fff"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="551dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txvTitleJobMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Senior UX Designer"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/cardView3"
+            app:layout_constraintStart_toEndOf="@+id/cardView3"
+            app:layout_constraintTop_toTopOf="@+id/cardView3"
+            app:layout_constraintVertical_bias="0.22000003" />
+
+        <TextView
+            android:id="@+id/txvSalaryMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$40-90k/year "
+            android:textColor="#3D3D3D"
+            app:layout_constraintStart_toStartOf="@+id/txvTitleJobMain"
+            app:layout_constraintTop_toBottomOf="@+id/txvTitleJobMain" />
+
+        <TextView
+            android:id="@+id/txvComitmentMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Full Time"
+            android:textColor="#121111"
+            app:layout_constraintBottom_toBottomOf="@+id/txvSalaryMain"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toTopOf="@+id/txvSalaryMain" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="8dp"
+            app:cardBackgroundColor="#000000"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgCompanyNameMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_companysvgwhite" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txvtimeMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="4 days left"
+            android:textColor="#9E1B1B"
+            app:layout_constraintBottom_toBottomOf="@+id/txvComitmentMain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txvComitmentMain" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="-4dp"
+            android:text="*"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/txvSalaryMain"
+            app:layout_constraintStart_toEndOf="@+id/txvSalaryMain"
+            app:layout_constraintTop_toTopOf="@+id/txvSalaryMain" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
