@@ -7716,8 +7716,8 @@
         Sodales ut eu sem integer vitae justo eget magna fermentum. Augue eget arcu dictum varius duis at. Ut placerat orci nulla
         pellentesque dignissim enim. Euismod in pellentesque massa placerat duis ultricies lacus sed.</string><string name="serverUrl">"https://api.graphql.jobs/"</string></file><file path="D:\Decode\nextjob\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.Nextjob" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
         
         <item name="colorSecondary">@color/teal_200</item>
