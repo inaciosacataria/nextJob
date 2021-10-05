@@ -15,4 +15,43 @@ query JobsQuery{
             title
         }
     }
+    remotes{
+        jobs {
+            id
+            title
+            locationNames
+            postedAt
+            description
+            applyUrl
+
+            company{
+                name
+                logoUrl
+            }
+            commitment{
+                title
+            }
+        }
+    }
+}
+
+query RemoteJobs{
+    remotes{
+        jobs {
+            id
+            title
+            locationNames
+            postedAt
+            description
+            applyUrl
+
+            company{
+                name
+                logoUrl
+            }
+            commitment{
+                title
+            }
+        }
+    }
 }

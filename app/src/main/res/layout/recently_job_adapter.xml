@@ -21,20 +21,23 @@
 
         <TextView
             android:id="@+id/txvTitleJobMain"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
             android:text="Senior UX Designer"
             android:textColor="#000"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/cardView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/cardView3"
             app:layout_constraintTop_toTopOf="@+id/cardView3"
             app:layout_constraintVertical_bias="0.22000003" />
 
         <TextView
-            android:id="@+id/txvSalaryMain"
+            android:id="@+id/txvCompanyMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$40-90k/year "
@@ -49,9 +52,9 @@
             android:padding="4dp"
             android:text="Full Time"
             android:textColor="#121111"
-            app:layout_constraintBottom_toBottomOf="@+id/txvSalaryMain"
+            app:layout_constraintBottom_toBottomOf="@+id/txvCompanyMain"
             app:layout_constraintStart_toEndOf="@+id/textView14"
-            app:layout_constraintTop_toTopOf="@+id/txvSalaryMain" />
+            app:layout_constraintTop_toTopOf="@+id/txvCompanyMain" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
@@ -91,9 +94,9 @@
             android:layout_marginBottom="-4dp"
             android:text="*"
             android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="@+id/txvSalaryMain"
-            app:layout_constraintStart_toEndOf="@+id/txvSalaryMain"
-            app:layout_constraintTop_toTopOf="@+id/txvSalaryMain" />
+            app:layout_constraintBottom_toBottomOf="@+id/txvCompanyMain"
+            app:layout_constraintStart_toEndOf="@+id/txvCompanyMain"
+            app:layout_constraintTop_toTopOf="@+id/txvCompanyMain" />
 
         <View
             android:id="@+id/divider"

@@ -1,6 +1,7 @@
 package com.decode.nextjob.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,18 +10,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.decode.nextjob.R
 import com.example.nextjob.JobsQuery
+import com.example.nextjob.JobsQuery.Remote
+import com.example.nextjob.RemoteJobsQuery
 import kotlinx.android.synthetic.main.remote_job_wite_adapter.view.*
 import kotlinx.android.synthetic.main.remote_job_wite_adapter.view.txvComitmentMain
 import kotlinx.android.synthetic.main.remote_job_wite_adapter.view.txvCompanyMain
 import kotlinx.android.synthetic.main.remote_job_wite_adapter.view.txvLocationMain
 import kotlinx.android.synthetic.main.remote_job_wite_adapter.view.txvTitleJobMain
+import java.sql.Timestamp
+import java.time.LocalTime
 
 
 class RemoteJobAdapter (var c:Context ): RecyclerView.Adapter<RemoteJobAdapter.MyRemoteJobViewHolder>() {
 
-    private var dataList = mutableListOf<JobsQuery.Job>()
+    private var dataList = mutableListOf<RemoteJobsQuery.Job>()
 
-    fun setListData(data: MutableList<JobsQuery.Job>){
+    fun setListData(data: MutableList<RemoteJobsQuery.Job>){
              dataList=data
     }
 
@@ -38,14 +43,17 @@ class RemoteJobAdapter (var c:Context ): RecyclerView.Adapter<RemoteJobAdapter.M
     override fun onBindViewHolder(holder: MyRemoteJobViewHolder, position: Int) {
 
         if (dataList.size!=0) {
-            var job: JobsQuery.Job = dataList[position]
-            holder.bindindView(job)
+
+                var remoteJob= dataList[position]
+                holder.bindindView(remoteJob)
+            }
       }
-    }
+
+
 
     override fun getItemCount(): Int {
         if (dataList.size!=0){
-            return 5
+            return dataList.size
         }
       return  dataList.size
     }
@@ -56,18 +64,19 @@ class RemoteJobAdapter (var c:Context ): RecyclerView.Adapter<RemoteJobAdapter.M
         public var img= itemView.findViewById<ImageView>(R.id.imgCompanyNameMain)
 
 
-        fun bindindView(job: JobsQuery.Job){
+        fun bindindView(remoteJob:RemoteJobsQuery.Job){
 
-            itemView.txvTitleJobMain.setText(job.title)
-            itemView.txvComitmentMain.setText(job.commitment.title)
-            itemView.txvCompanyMain.setText(job.company?.name)
+            itemView.txvTitleJobMain.setText(remoteJob.title)
+            itemView.txvComitmentMain.setText(remoteJob.commitment.title)
+            itemView.txvCompanyMain.setText(remoteJob.company?.name)
 
-            var location = if (job.locationNames?.toString()!!.isEmpty()) {
-                "no location"
-            } else job.locationNames
+         //   var time: Timestamp= remoteJob.postedAt as Timestamp
+         //   Log.d("timestamp", time.time.toString())
+            var location = "remote"
+
             itemView.txvLocationMain.text=(location)
 
-            var logoUrl=job.company?.logoUrl
+            var logoUrl=remoteJob.company?.logoUrl
 
             if (logoUrl != null) {
                 if (logoUrl.isNotEmpty())

@@ -40,6 +40,10 @@
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_header.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\header.xml"
+    },
+    {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_remote_job_wite_adapter.xml.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\remote_job_wite_adapter.xml"
     },
@@ -78,6 +82,10 @@
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_shimmer_recently_jobs_main_activity.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\shimmer_recently_jobs_main_activity.xml"
     },
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_back.png.flat",

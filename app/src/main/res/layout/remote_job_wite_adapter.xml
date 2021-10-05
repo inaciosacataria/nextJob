@@ -22,14 +22,16 @@
 
         <TextView
             android:id="@+id/txvTitleJobMain"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:textStyle="bold"
 
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,7 +106,7 @@
             android:id="@+id/txvtimeMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             android:text="4 days left"
             android:textColor="#9E1B1B"
             app:layout_constraintBottom_toBottomOf="@+id/txvLocationMain"

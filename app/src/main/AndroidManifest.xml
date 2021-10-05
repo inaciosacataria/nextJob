@@ -11,13 +11,17 @@
         android:roundIcon="@drawable/logo2"
         android:supportsRtl="true"
         android:theme="@style/Theme.Nextjob">
-        <activity android:name=".ui.AllJobsActivity"></activity>
+        <activity android:name=".ui.AllJobsActivity">
+
+        </activity>
+
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

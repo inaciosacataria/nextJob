@@ -15,7 +15,7 @@
 11-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:5:22-64
 12
 13    <application
-13-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:7:5-22:19
+13-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:7:5-26:19
 14        android:allowBackup="true"
 14-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:8:9-35
 15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -32,34 +32,35 @@
 21        android:testOnly="true"
 22        android:theme="@style/Theme.Nextjob" >
 22-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:13:9-45
-23        <activity android:name="com.decode.nextjob.ui.AllJobsActivity" />
-23-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:14:9-65
+23        <activity android:name="com.decode.nextjob.ui.AllJobsActivity" >
+23-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:14:9-16:20
 23-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:14:19-53
-24        <activity android:name="com.decode.nextjob.ui.MainActivity" >
-24-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:15:9-21:20
-24-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:15:19-50
-25            <intent-filter>
-25-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:16:13-20:29
-26                <action android:name="android.intent.action.MAIN" />
-26-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:17:17-69
-26-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:17:25-66
-27
-28                <category android:name="android.intent.category.LAUNCHER" />
-28-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:19:17-77
-28-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:19:27-74
-29            </intent-filter>
-30        </activity>
-31
-32        <provider
-32-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
-33            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-33-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
-34            android:authorities="com.decode.nextjob.lifecycle-process"
-34-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
-35            android:exported="false"
-35-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
-36            android:multiprocess="true" />
-36-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
-37    </application>
-38
-39</manifest>
+24        </activity>
+25        <activity android:name="com.decode.nextjob.ui.MainActivity" >
+25-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:18:9-25:20
+25-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:18:19-50
+26            <intent-filter>
+26-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:19:13-23:29
+27                <action android:name="android.intent.action.MAIN" />
+27-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:20:17-69
+27-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:20:25-66
+28
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:22:17-77
+29-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:22:27-74
+30            </intent-filter>
+31        </activity>
+32
+33        <provider
+33-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+34            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+34-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+35            android:authorities="com.decode.nextjob.lifecycle-process"
+35-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+36            android:exported="false"
+36-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+37            android:multiprocess="true" />
+37-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+38    </application>
+39
+40</manifest>

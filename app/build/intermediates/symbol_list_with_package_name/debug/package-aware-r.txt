@@ -1991,7 +1991,6 @@ id chip
 id chip1
 id chip2
 id chip3
-id chipGroup
 id chip_group
 id chronometer
 id circle_center
@@ -2086,7 +2085,6 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
-id horizontalScrollView
 id horizontal_only
 id icon
 id icon_group
@@ -2102,6 +2100,7 @@ id imageView5
 id imageView7
 id imgCompanyNameMain
 id immediateStop
+id include
 id included
 id info
 id invisible
@@ -2218,6 +2217,7 @@ id progress_horizontal
 id radial
 id radio
 id ratio
+id rcvAlJobs
 id rcvMainRemoteJobs
 id rcvRencentlyJobs
 id rectangles
@@ -2258,6 +2258,7 @@ id selection_type
 id sharedValueSet
 id sharedValueUnset
 id shimer
+id shimerRecentlyJobs
 id shortcut
 id showCustom
 id showHome
@@ -2472,6 +2473,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout header
 layout info_job
 layout material_chip_input_combo
 layout material_clock_display
@@ -2529,6 +2531,7 @@ layout remote_jobs_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout shimmer_recently_jobs_main_activity
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_chip_zero_corner_radius

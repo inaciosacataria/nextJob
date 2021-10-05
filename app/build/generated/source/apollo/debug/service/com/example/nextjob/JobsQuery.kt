@@ -215,14 +215,145 @@ class JobsQuery : Query<JobsQuery.Data, JobsQuery.Data, Operation.Variables> {
     }
   }
 
-  /**
-   * Data from the response after executing this GraphQL operation
-   */
-  data class Data(
-    val jobs: List<Job>
-  ) : Operation.Data {
-    override fun marshaller(): ResponseFieldMarshaller = ResponseFieldMarshaller.invoke { writer ->
-      writer.writeList(RESPONSE_FIELDS[0], this@Data.jobs) { value, listItemWriter ->
+  data class Company1(
+    val __typename: String = "Company",
+    val name: String,
+    val logoUrl: String?
+  ) {
+    fun marshaller(): ResponseFieldMarshaller = ResponseFieldMarshaller.invoke { writer ->
+      writer.writeString(RESPONSE_FIELDS[0], this@Company1.__typename)
+      writer.writeString(RESPONSE_FIELDS[1], this@Company1.name)
+      writer.writeString(RESPONSE_FIELDS[2], this@Company1.logoUrl)
+    }
+
+    companion object {
+      private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+          ResponseField.forString("__typename", "__typename", null, false, null),
+          ResponseField.forString("name", "name", null, false, null),
+          ResponseField.forString("logoUrl", "logoUrl", null, true, null)
+          )
+
+      operator fun invoke(reader: ResponseReader): Company1 = reader.run {
+        val __typename = readString(RESPONSE_FIELDS[0])!!
+        val name = readString(RESPONSE_FIELDS[1])!!
+        val logoUrl = readString(RESPONSE_FIELDS[2])
+        Company1(
+          __typename = __typename,
+          name = name,
+          logoUrl = logoUrl
+        )
+      }
+
+      @Suppress("FunctionName")
+      fun Mapper(): ResponseFieldMapper<Company1> = ResponseFieldMapper { invoke(it) }
+    }
+  }
+
+  data class Commitment1(
+    val __typename: String = "Commitment",
+    val title: String
+  ) {
+    fun marshaller(): ResponseFieldMarshaller = ResponseFieldMarshaller.invoke { writer ->
+      writer.writeString(RESPONSE_FIELDS[0], this@Commitment1.__typename)
+      writer.writeString(RESPONSE_FIELDS[1], this@Commitment1.title)
+    }
+
+    companion object {
+      private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+          ResponseField.forString("__typename", "__typename", null, false, null),
+          ResponseField.forString("title", "title", null, false, null)
+          )
+
+      operator fun invoke(reader: ResponseReader): Commitment1 = reader.run {
+        val __typename = readString(RESPONSE_FIELDS[0])!!
+        val title = readString(RESPONSE_FIELDS[1])!!
+        Commitment1(
+          __typename = __typename,
+          title = title
+        )
+      }
+
+      @Suppress("FunctionName")
+      fun Mapper(): ResponseFieldMapper<Commitment1> = ResponseFieldMapper { invoke(it) }
+    }
+  }
+
+  data class Job1(
+    val __typename: String = "Job",
+    val id: String,
+    val title: String,
+    val locationNames: String?,
+    val postedAt: Any,
+    val description: String?,
+    val applyUrl: String?,
+    val company: Company1?,
+    val commitment: Commitment1
+  ) {
+    fun marshaller(): ResponseFieldMarshaller = ResponseFieldMarshaller.invoke { writer ->
+      writer.writeString(RESPONSE_FIELDS[0], this@Job1.__typename)
+      writer.writeCustom(RESPONSE_FIELDS[1] as ResponseField.CustomTypeField, this@Job1.id)
+      writer.writeString(RESPONSE_FIELDS[2], this@Job1.title)
+      writer.writeString(RESPONSE_FIELDS[3], this@Job1.locationNames)
+      writer.writeCustom(RESPONSE_FIELDS[4] as ResponseField.CustomTypeField, this@Job1.postedAt)
+      writer.writeString(RESPONSE_FIELDS[5], this@Job1.description)
+      writer.writeString(RESPONSE_FIELDS[6], this@Job1.applyUrl)
+      writer.writeObject(RESPONSE_FIELDS[7], this@Job1.company?.marshaller())
+      writer.writeObject(RESPONSE_FIELDS[8], this@Job1.commitment.marshaller())
+    }
+
+    companion object {
+      private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+          ResponseField.forString("__typename", "__typename", null, false, null),
+          ResponseField.forCustomType("id", "id", null, false, CustomType.ID, null),
+          ResponseField.forString("title", "title", null, false, null),
+          ResponseField.forString("locationNames", "locationNames", null, true, null),
+          ResponseField.forCustomType("postedAt", "postedAt", null, false, CustomType.DATETIME,
+              null),
+          ResponseField.forString("description", "description", null, true, null),
+          ResponseField.forString("applyUrl", "applyUrl", null, true, null),
+          ResponseField.forObject("company", "company", null, true, null),
+          ResponseField.forObject("commitment", "commitment", null, false, null)
+          )
+
+      operator fun invoke(reader: ResponseReader): Job1 = reader.run {
+        val __typename = readString(RESPONSE_FIELDS[0])!!
+        val id = readCustomType<String>(RESPONSE_FIELDS[1] as ResponseField.CustomTypeField)!!
+        val title = readString(RESPONSE_FIELDS[2])!!
+        val locationNames = readString(RESPONSE_FIELDS[3])
+        val postedAt = readCustomType<Any>(RESPONSE_FIELDS[4] as ResponseField.CustomTypeField)!!
+        val description = readString(RESPONSE_FIELDS[5])
+        val applyUrl = readString(RESPONSE_FIELDS[6])
+        val company = readObject<Company1>(RESPONSE_FIELDS[7]) { reader ->
+          Company1(reader)
+        }
+        val commitment = readObject<Commitment1>(RESPONSE_FIELDS[8]) { reader ->
+          Commitment1(reader)
+        }!!
+        Job1(
+          __typename = __typename,
+          id = id,
+          title = title,
+          locationNames = locationNames,
+          postedAt = postedAt,
+          description = description,
+          applyUrl = applyUrl,
+          company = company,
+          commitment = commitment
+        )
+      }
+
+      @Suppress("FunctionName")
+      fun Mapper(): ResponseFieldMapper<Job1> = ResponseFieldMapper { invoke(it) }
+    }
+  }
+
+  data class Remote(
+    val __typename: String = "Remote",
+    val jobs: List<Job1>?
+  ) {
+    fun marshaller(): ResponseFieldMarshaller = ResponseFieldMarshaller.invoke { writer ->
+      writer.writeString(RESPONSE_FIELDS[0], this@Remote.__typename)
+      writer.writeList(RESPONSE_FIELDS[1], this@Remote.jobs) { value, listItemWriter ->
         value?.forEach { value ->
           listItemWriter.writeObject(value.marshaller())}
       }
@@ -230,7 +361,50 @@ class JobsQuery : Query<JobsQuery.Data, JobsQuery.Data, Operation.Variables> {
 
     companion object {
       private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-          ResponseField.forList("jobs", "jobs", null, false, null)
+          ResponseField.forString("__typename", "__typename", null, false, null),
+          ResponseField.forList("jobs", "jobs", null, true, null)
+          )
+
+      operator fun invoke(reader: ResponseReader): Remote = reader.run {
+        val __typename = readString(RESPONSE_FIELDS[0])!!
+        val jobs = readList<Job1>(RESPONSE_FIELDS[1]) { reader ->
+          reader.readObject<Job1> { reader ->
+            Job1(reader)
+          }
+        }?.map { it!! }
+        Remote(
+          __typename = __typename,
+          jobs = jobs
+        )
+      }
+
+      @Suppress("FunctionName")
+      fun Mapper(): ResponseFieldMapper<Remote> = ResponseFieldMapper { invoke(it) }
+    }
+  }
+
+  /**
+   * Data from the response after executing this GraphQL operation
+   */
+  data class Data(
+    val jobs: List<Job>,
+    val remotes: List<Remote>
+  ) : Operation.Data {
+    override fun marshaller(): ResponseFieldMarshaller = ResponseFieldMarshaller.invoke { writer ->
+      writer.writeList(RESPONSE_FIELDS[0], this@Data.jobs) { value, listItemWriter ->
+        value?.forEach { value ->
+          listItemWriter.writeObject(value.marshaller())}
+      }
+      writer.writeList(RESPONSE_FIELDS[1], this@Data.remotes) { value, listItemWriter ->
+        value?.forEach { value ->
+          listItemWriter.writeObject(value.marshaller())}
+      }
+    }
+
+    companion object {
+      private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+          ResponseField.forList("jobs", "jobs", null, false, null),
+          ResponseField.forList("remotes", "remotes", null, false, null)
           )
 
       operator fun invoke(reader: ResponseReader): Data = reader.run {
@@ -239,8 +413,14 @@ class JobsQuery : Query<JobsQuery.Data, JobsQuery.Data, Operation.Variables> {
             Job(reader)
           }
         }!!.map { it!! }
+        val remotes = readList<Remote>(RESPONSE_FIELDS[1]) { reader ->
+          reader.readObject<Remote> { reader ->
+            Remote(reader)
+          }
+        }!!.map { it!! }
         Data(
-          jobs = jobs
+          jobs = jobs,
+          remotes = remotes
         )
       }
 
@@ -251,7 +431,7 @@ class JobsQuery : Query<JobsQuery.Data, JobsQuery.Data, Operation.Variables> {
 
   companion object {
     const val OPERATION_ID: String =
-        "3fbad86132fd18dd32166b2f3223499c01e948fac0644ed02d38d46d81569a66"
+        "641520ab3898dc520d3d33c1ec72974845d01730162b99bdc1f98ce0d5f75548"
 
     val QUERY_DOCUMENT: String = QueryDocumentMinifier.minify(
           """
@@ -272,6 +452,27 @@ class JobsQuery : Query<JobsQuery.Data, JobsQuery.Data, Operation.Variables> {
           |    commitment {
           |      __typename
           |      title
+          |    }
+          |  }
+          |  remotes {
+          |    __typename
+          |    jobs {
+          |      __typename
+          |      id
+          |      title
+          |      locationNames
+          |      postedAt
+          |      description
+          |      applyUrl
+          |      company {
+          |        __typename
+          |        name
+          |        logoUrl
+          |      }
+          |      commitment {
+          |        __typename
+          |        title
+          |      }
           |    }
           |  }
           |}
