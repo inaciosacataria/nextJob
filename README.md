@@ -17,7 +17,7 @@
  # API data source
  find out the api schema on [https://api.graphql.jobs/](https://api.graphql.jobs/)
  
- # Dependency
+ # Dependencies
  
  ## [Glide](https://github.com/bumptech/glide)
  Glide is a fast and efficient open source media management and image loading framework
