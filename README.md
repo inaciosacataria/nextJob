@@ -1,4 +1,6 @@
-# nextJob
+ <img src="https://github.com/inaciosacataria/nextJob/blob/main/screenshots/facebook_cover_photo_1.png" alt="drawing" width="280"/>
+ 
+ # nextJob
  Find your dream Job
  
  The idea of the application is to help users find job opportunities and internships that exist on the internet in an organized way, using
