@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-32:12
 MERGED from [androidx.fragment:fragment-ktx:1.3.2] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\ad8759c7c92d30c10f032cd2970aaf9b\jetified-fragment-ktx-1.3.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity-ktx:1.2.2] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\c54e820afc99c8ac121847d4e9186411\jetified-activity-ktx-1.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\b5393119b3cad9a0753e65ad5ae80234\jetified-core-ktx-1.6.0\AndroidManifest.xml:2:1-9:12
@@ -57,20 +57,20 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Inacio Sacataria
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\da880418d1999130adcaceb2ed89024d\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\1b2109fae3c821b07e49930f0f57812a\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\d5f19627864fb7ae7ca492ea672f5bc4\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-32:12
 	package
 		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:3:5-33
 		INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml
-		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-32:12
 		INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml
-		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:1-32:12
 		INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:2:11-69
@@ -79,7 +79,7 @@ ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:5:5-67
 	android:name
 		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:7:5-26:19
+ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:7:5-30:19
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\e2c8d1ae696ac3de6ad7655506301d8a\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\e2c8d1ae696ac3de6ad7655506301d8a\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\58df42bfb5a41889479f254795c33874\constraintlayout-2.1.0\AndroidManifest.xml:9:5-20
@@ -115,19 +115,23 @@ ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:14:9-16:20
 	android:name
 		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:14:19-53
 activity#com.decode.nextjob.ui.MainActivity
-ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:18:9-25:20
+ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:18:9-21:20
 	android:name
 		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:18:19-50
+activity#com.decode.nextjob.ui.JobInfo
+ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:23:9-29:20
+	android:name
+		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:23:19-45
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:24:13-28:29
 action#android.intent.action.MAIN
-ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:17-69
 	android:name
-		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:22:17-77
+ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:27:17-77
 	android:name
-		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml:27:27-74
 uses-sdk
 INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Decode\nextjob\app\src\main\AndroidManifest.xml
