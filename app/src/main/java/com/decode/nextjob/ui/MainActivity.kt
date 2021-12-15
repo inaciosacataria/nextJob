@@ -3,7 +3,9 @@ package com.decode.nextjob.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +15,8 @@ import com.decode.nextjob.adapter.RecenlyJobAdatapter
 import com.decode.nextjob.adapter.RemoteJobAdapter
 import com.decode.nextjob.helpers.Constants
 import com.decode.nextjob.viewmodels.MainActivityViewModel
+import com.example.nextjob.RemoteJobsQuery
+import io.github.horaciocome1.simplerecyclerviewtouchlistener.addOnItemClickListener
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -38,6 +42,12 @@ class MainActivity : AppCompatActivity() {
         recentlyJobs()
         rcvRencentlyJobs.adapter= recenlyJobAdapter
 
+        rcvRencentlyJobs.addOnItemClickListener{ it, pos->
+
+            passToInfoActivity("recentlyJobs",pos)
+        }
+
+
 
         remoteJobAdapter= RemoteJobAdapter(this)
         observeRemoteData()
@@ -45,11 +55,48 @@ class MainActivity : AppCompatActivity() {
         rcvMainRemoteJobs.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         rcvMainRemoteJobs.setHasFixedSize(true)
 
+        rcvMainRemoteJobs.addOnItemClickListener { view, pos ->
 
-
-
+            passToInfoActivity("remoteJobs", pos)
+        }
 
     }
+
+        fun passToInfoActivity(jobtype:String, pos : Int){
+
+            var infoIntent= Intent(this, JobInfo::class.java);
+            if(jobtype.equals("recentlyJobs")) {
+
+                 var job = recenlyJobAdapter.getDataList(pos)
+                Log.d("example",job.applyUrl+" ---- "+ job.title)
+
+                infoIntent.putExtra("tittle",job.title);
+                infoIntent.putExtra("commitment",job.commitment.title);
+                infoIntent.putExtra("photo",job.company!!.logoUrl);
+                infoIntent.putExtra("company",job.company!!.name);
+                infoIntent.putExtra("location","remote");
+                infoIntent.putExtra("date",job.postedAt.toString());
+                infoIntent.putExtra("description",job.description);
+                infoIntent.putExtra("applyUrl",job.applyUrl);
+            }else{
+                 var job = remoteJobAdapter.getListData(pos)
+
+                Log.d("example",job.applyUrl+" ---- "+ job.title)
+
+                infoIntent.putExtra("tittle",job.title);
+                infoIntent.putExtra("commitment",job.commitment.title);
+                infoIntent.putExtra("photo",job.company!!.logoUrl);
+                infoIntent.putExtra("company",job.company!!.name);
+                infoIntent.putExtra("location","remote");
+                infoIntent.putExtra("date",job.postedAt.toString());
+                infoIntent.putExtra("description",job.description);
+                infoIntent.putExtra("applyUrl",job.applyUrl);
+            }
+            startActivity(infoIntent)
+        }
+
+
+
     fun recentlyJobs(){
         shimerRecentlyJobs.visibility=View.VISIBLE
         shimerRecentlyJobs.startShimmer()
@@ -71,6 +118,7 @@ class MainActivity : AppCompatActivity() {
                 shimer.visibility= View.GONE
                 remoteJobAdapter.notifyDataSetChanged()
             })
+
 
 
 

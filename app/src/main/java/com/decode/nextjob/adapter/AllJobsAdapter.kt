@@ -20,6 +20,9 @@ class AllJobsAdapter(var context:Context,var viewID: Int) : RecyclerView.Adapter
     fun setDataList(data: MutableList<JobsQuery.Job>){
         dataList= data
     }
+    fun getDataList(position: Int): JobsQuery.Job{
+        return dataList[position]
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllJobsViewHolder {

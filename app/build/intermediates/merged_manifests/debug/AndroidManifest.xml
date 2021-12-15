@@ -23,13 +23,13 @@
         <activity android:name="com.decode.nextjob.ui.AllJobsActivity" >
         </activity>
         <activity android:name="com.decode.nextjob.ui.MainActivity" >
-        </activity>
-        <activity android:name="com.decode.nextjob.ui.JobInfo" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.decode.nextjob.ui.JobInfo" >
         </activity>
 
         <provider
