@@ -10,6 +10,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.decode.nextjob.R
+import com.decode.nextjob.viewmodels.MainActivityViewModel
 import com.example.nextjob.JobsQuery
 import com.example.nextjob.JobsQuery.Remote
 import com.example.nextjob.RemoteJobsQuery
@@ -25,7 +26,19 @@ import java.time.LocalTime
 class RemoteJobAdapter (var c:Context ): RecyclerView.Adapter<RemoteJobAdapter.MyRemoteJobViewHolder>() {
 
     private var dataList = mutableListOf<RemoteJobsQuery.Job>()
+    private var searchList = mutableListOf<RemoteJobsQuery.Job>()
 
+    fun searchData(text: String){
+        for ( jobs in dataList){
+            if(jobs.title.toString().contains(text,true)){
+                searchList.add(jobs)
+            }
+        }
+        if(searchList.size!=0){
+          //  dataList.clear()
+            dataList = searchList
+        }
+    }
     fun setListData(data: MutableList<RemoteJobsQuery.Job>){
              dataList=data
     }

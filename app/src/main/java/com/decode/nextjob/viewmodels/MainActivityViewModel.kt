@@ -1,5 +1,6 @@
 package com.decode.nextjob.viewmodels
 
+import android.icu.text.CaseMap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,6 +21,14 @@ class MainActivityViewModel: ViewModel() {
         return mutableData
     }
 
+    fun searchJobs(text: String){//}: LiveData<MutableList<JobsQuery.Job>>{
+        val mutableData = fectchJobsData()
+        val mutableSearchData = MutableLiveData<MutableList<JobsQuery.Job>>()
+
+    //    for (var job in mu)
+
+    }
+
     fun fetchRemoteJobs(): LiveData<MutableList<RemoteJobsQuery.Job>>{
         var mutableData =MutableLiveData<MutableList<RemoteJobsQuery.Job>>()
         repo.getRemoteJobs().observeForever {
@@ -27,4 +36,6 @@ class MainActivityViewModel: ViewModel() {
         }
         return mutableData
     }
+
+
 }

@@ -9,13 +9,14 @@ import com.bumptech.glide.Glide
 import com.decode.nextjob.R
 import com.decode.nextjob.helpers.Constants
 import com.example.nextjob.JobsQuery
+import com.example.nextjob.RemoteJobsQuery
 import kotlinx.android.synthetic.main.all_job_white_adapter.view.*
 
 
 class AllJobsAdapter(var context:Context,var viewID: Int) : RecyclerView.Adapter<AllJobsAdapter.AllJobsViewHolder>() {
 
     private var dataList= mutableListOf<JobsQuery.Job>()
-
+    private var searchList = mutableListOf<JobsQuery.Job>()
 
     fun setDataList(data: MutableList<JobsQuery.Job>){
         dataList= data
@@ -24,7 +25,17 @@ class AllJobsAdapter(var context:Context,var viewID: Int) : RecyclerView.Adapter
         return dataList[position]
     }
 
-
+    fun searchData(text: String?){
+        for ( jobs in dataList){
+            if(jobs.title.toString().contains(text!!,false)){
+                searchList.add(jobs)
+            }
+        }
+        if(searchList.size!=0){
+        //    dataList.clear()
+            dataList = searchList
+        }
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllJobsViewHolder {
 
        lateinit var view:View

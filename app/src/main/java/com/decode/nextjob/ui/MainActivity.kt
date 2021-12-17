@@ -3,10 +3,15 @@ package com.decode.nextjob.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.decode.nextjob.R
@@ -19,6 +24,9 @@ import com.example.nextjob.RemoteJobsQuery
 import io.github.horaciocome1.simplerecyclerviewtouchlistener.addOnItemClickListener
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.all_jobs_activity.*
+import kotlinx.android.synthetic.main.header.*
+import kotlinx.android.synthetic.main.header.editMainSearch
 
 class MainActivity : AppCompatActivity() {
 
@@ -49,6 +57,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         remoteJobAdapter= RemoteJobAdapter(this)
         observeRemoteData()
         rcvMainRemoteJobs.adapter= remoteJobAdapter!!
@@ -60,7 +69,19 @@ class MainActivity : AppCompatActivity() {
             passToInfoActivity("remoteJobs", pos)
         }
 
-    }
+        editMainSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextChange(query: String?): Boolean {
+
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                recenlyJobAdapter.searchData(query)
+                recenlyJobAdapter.notifyDataSetChanged()
+                return false
+            }
+        })
+        }
 
         fun passToInfoActivity(jobtype:String, pos : Int){
 

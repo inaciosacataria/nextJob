@@ -27,44 +27,21 @@
         android:layout_width="0dp"
         android:layout_height="54dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="32dp"
         app:cardCornerRadius="15dp"
         app:cardElevation="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/cardView2"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-        <EditText
+        <SearchView
             android:id="@+id/editMainSearch"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
-            android:ems="10"
-            android:hint="search"
+            android:background="@drawable/edit_text_backgroud"
             android:inputType="textPersonName"
             android:padding="5dp"
             android:paddingStart="16dp" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="#0B0B0B"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardView4">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:srcCompat="@drawable/ic__option" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
