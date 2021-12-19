@@ -29,7 +29,6 @@ class Repositories {
 
                 for ( job :JobsQuery.Job in jobs){
                     listData.add(job)
-                    Log.d("hey",job.title)
                 }
                   dataMutable.postValue( listData)
 
@@ -40,6 +39,30 @@ class Repositories {
         }
 
          return dataMutable
+    }
+
+    fun searchjobs(s:String): LiveData<MutableList<JobsQuery.Job>> {
+
+        var dataMutable = MutableLiveData<MutableList<JobsQuery.Job>>()
+
+        GlobalScope.launch {
+
+            try {
+                var listData = mutableListOf<JobsQuery.Job>()
+                var response = apolloClient.query(JobsQuery()).await()
+                var jobs = response.data?.jobs?.filterNotNull()!!
+
+                for (job: JobsQuery.Job in jobs) {
+                    if (job.title.contains(s, true)) {
+                        listData.add(job)
+                    }
+                }
+                dataMutable.postValue(listData)
+            } catch (e: ApolloException) {
+                Log.d("error", e.message.toString())
+            }
+        }
+        return dataMutable
     }
 
     fun getRemoteJobs(): LiveData<MutableList<RemoteJobsQuery.Job>>{
@@ -64,4 +87,33 @@ class Repositories {
 
         return dataMutale
     }
+
+    fun searchRemoteJobs(text:String): LiveData<MutableList<RemoteJobsQuery.Job>>{
+        var dataMutale =MutableLiveData<MutableList<RemoteJobsQuery.Job>>()
+        GlobalScope.launch{
+
+            try{
+                var dataList= mutableListOf<RemoteJobsQuery.Job>()
+                var response= apolloClient.query(RemoteJobsQuery()).await()
+                var remoteData = response?.data?.remotes?.filterNotNull()!!
+
+                for(remote in remoteData){
+
+                    for (job in remote.jobs!!) {
+                        if (job.title.contains(text,true)) {
+                            dataList.add(job)
+                        }
+                    }
+                }
+
+                dataMutale.postValue(dataList)
+            }catch (e: ApolloException){
+                Log.d("error",e.message.toString())
+            }
+        }
+
+        return dataMutale
+    }
+
+
 }

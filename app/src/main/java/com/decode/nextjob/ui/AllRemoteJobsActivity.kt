@@ -10,25 +10,35 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.decode.nextjob.R
 import com.decode.nextjob.adapter.RemoteJobAdapter
+import com.decode.nextjob.helpers.helperNet
 import com.decode.nextjob.helpers.helpers
 import com.decode.nextjob.viewmodels.MainActivityViewModel
+import io.github.horaciocome1.simplerecyclerviewtouchlistener.addOnItemClickListener
 import kotlinx.android.synthetic.main.activity_all_remote_jobs.*
 
 
 class AllRemoteJobsActivity : AppCompatActivity() {
 
     private lateinit var remoteJobAdapter: RemoteJobAdapter
-    val  mayMainVM : MainActivityViewModel by viewModels()
+    val  viewModel : MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_remote_jobs)
 
+        if(!helperNet.isNetworkAvailable(this)){
+            showdialog(this)
+        }else{
+            initialize()
+        }
+
+    }
+
+    fun  initialize(){
         btnBackAll.setOnClickListener {
             onBackPressed()
         }
@@ -37,37 +47,57 @@ class AllRemoteJobsActivity : AppCompatActivity() {
         observeRemoteData()
         rcvAlJobs.adapter= remoteJobAdapter!!
         rcvAlJobs.layoutManager=
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
+                LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
         rcvAlJobs.setHasFixedSize(true)
-    }
-
-    fun observeRemoteData(){
-
-
-        mayMainVM.fetchRemoteJobs().observe(this, Observer {
-
-            remoteJobAdapter.setListData(it)
-            remoteJobAdapter.notifyDataSetChanged()
-        })
 
         editMainSearch.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener{
-            override fun onQueryTextChange(query: String?): Boolean {
-
+            override fun onQueryTextChange(query: String): Boolean {
+                searchjobs(query)
                 return false
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-                remoteJobAdapter.searchData(query)
-                remoteJobAdapter.notifyDataSetChanged()
                 return false
             }
         })
 
-
-        if(!helpers.isInternetAvailable()){
-            showdialog(this)
+        rcvAlJobs.addOnItemClickListener { view, i ->
+            passToInfoActivity(i)
         }
     }
+
+    fun observeRemoteData() {
+
+        shimer.visibility= View.VISIBLE
+        shimer.startShimmer()
+        viewModel.fetchRemoteJobs().observe(this, Observer {
+            remoteJobAdapter.setListData(it)
+            shimer.stopShimmer()
+            shimer.visibility= View.GONE
+            remoteJobAdapter.notifyDataSetChanged()
+        })
+
+    }
+    fun searchjobs(s:String)
+    {
+        shimer.visibility= View.VISIBLE
+        shimer.startShimmer()
+        viewModel.searchRemoteJobs(s).observe(this,{
+            remoteJobAdapter.setListData(it)
+            shimer.stopShimmer()
+            shimer.visibility= View.GONE
+            remoteJobAdapter.notifyDataSetChanged()
+        })
+    }
+
+
+
+
+
+
+
+
+
     fun showdialog(c: Context){
         val alert= AlertDialog.Builder(c);
         alert.setMessage("Check out your internet connection and find out your next jobs")
@@ -85,7 +115,7 @@ class AllRemoteJobsActivity : AppCompatActivity() {
         alert.show()
     }
 
-    fun passToInfoActivity(jobtype:String, pos : Int){
+    fun passToInfoActivity( pos : Int){
 
         var infoIntent= Intent(this, JobInfo::class.java);
 
@@ -103,6 +133,15 @@ class AllRemoteJobsActivity : AppCompatActivity() {
             infoIntent.putExtra("applyUrl",job.applyUrl);
 
         startActivity(infoIntent)
+    }
+
+    override fun onResume() {
+        if(!helperNet.isNetworkAvailable(this)){
+            showdialog(this)
+        }else{
+            initialize()
+        }
+        super.onResume()
     }
 
 }

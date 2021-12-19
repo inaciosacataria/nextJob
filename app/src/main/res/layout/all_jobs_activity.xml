@@ -7,6 +7,53 @@
 
     tools:context=".ui.MainActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvAlJobs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4"
+        tools:listitem="@layout/all_job_adapter" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimer2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4"
+        app:shimmer_direction="left_to_right"
+        app:shimmer_auto_start="true"
+        app:shimmer_intensity="@integer/material_motion_duration_medium_1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
+
+            <include layout="@layout/shimmer_recently_jobs_main_activity" />
+
+            <include layout="@layout/shimmer_recently_jobs_main_activity" />
+
+            <include layout="@layout/shimmer_recently_jobs_main_activity" />
+
+            <include layout="@layout/shimmer_recently_jobs_main_activity" />
+
+            <include layout="@layout/shimmer_recently_jobs_main_activity" />
+
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
     <androidx.cardview.widget.CardView
         android:id="@+id/btnBackAll"
         android:layout_width="54dp"
@@ -65,16 +112,6 @@
     </androidx.cardview.widget.CardView>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvAlJobs"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView4"
-        tools:listitem="@layout/all_job_adapter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

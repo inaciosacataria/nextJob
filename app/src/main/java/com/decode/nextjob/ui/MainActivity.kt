@@ -17,6 +17,7 @@ import com.decode.nextjob.R
 import com.decode.nextjob.adapter.AllJobsAdapter
 import com.decode.nextjob.adapter.RemoteJobAdapter
 import com.decode.nextjob.helpers.Constants
+import com.decode.nextjob.helpers.helperNet
 import com.decode.nextjob.helpers.helpers
 import com.decode.nextjob.viewmodels.MainActivityViewModel
 import io.github.horaciocome1.simplerecyclerviewtouchlistener.addOnItemClickListener
@@ -37,17 +38,11 @@ class MainActivity : AppCompatActivity() {
 
 
            setContentView(R.layout.activity_main)
-           if(!helpers.isInternetAvailable()){
-               showdialog(this)
+           if(helperNet.isNetworkAvailable(this)){
+             initialize()
            }else{
-               initialize()
+               showdialog(this)
            }
-
-
-
-
-
-
 
         }
 
@@ -81,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         allJobsAdapter= AllJobsAdapter(this,Constants.MAIN_ACTIVIY_ID)
         rcvRencentlyJobs.layoutManager=LinearLayoutManager(this)
         rcvRencentlyJobs.setHasFixedSize(true)
-        recentlyJobs()
+        allJobs()
         rcvRencentlyJobs.adapter= allJobsAdapter
 
         rcvRencentlyJobs.addOnItemClickListener{ it, pos->
@@ -104,14 +99,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         editMainSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextChange(query: String?): Boolean {
-
+            override fun onQueryTextChange(query: String): Boolean {
+                searchjobs(query)
                 return false
             }
 
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                allJobsAdapter.searchData(query)
-                allJobsAdapter.notifyDataSetChanged()
+            override fun onQueryTextSubmit(query: String): Boolean {
+
                 return false
             }
         })
@@ -152,7 +146,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    fun recentlyJobs(){
+    fun allJobs(){
         shimerRecentlyJobs.visibility=View.VISIBLE
         shimerRecentlyJobs.startShimmer()
         mayMainVM.fectchJobsData().observe(this,{
@@ -162,6 +156,20 @@ class MainActivity : AppCompatActivity() {
             allJobsAdapter.notifyDataSetChanged()
         })
     }
+
+    fun searchjobs(s:String)
+    {
+        shimerRecentlyJobs.visibility=View.VISIBLE
+        shimerRecentlyJobs.startShimmer()
+        mayMainVM.searchJobs(s).observe(this,{
+            allJobsAdapter.setDataList(it)
+            shimerRecentlyJobs.stopShimmer()
+            shimerRecentlyJobs.visibility= View.GONE
+            allJobsAdapter.notifyDataSetChanged()
+        })
+    }
+
+
     fun observeRemoteData(){
        shimer.visibility= View.VISIBLE
         shimer.startShimmer()
@@ -174,8 +182,14 @@ class MainActivity : AppCompatActivity() {
                 remoteJobAdapter.notifyDataSetChanged()
             })
 
+    }
 
-
-
+    override fun onResume() {
+        if(helperNet.isNetworkAvailable(this)){
+            initialize()
+        }else{
+            showdialog(this)
+        }
+        super.onResume()
     }
 }

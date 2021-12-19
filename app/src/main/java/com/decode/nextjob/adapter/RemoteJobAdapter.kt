@@ -25,17 +25,7 @@ class RemoteJobAdapter(var c: Context, var activity: Int): RecyclerView.Adapter<
     private var dataList = mutableListOf<RemoteJobsQuery.Job>()
     private var searchList = mutableListOf<RemoteJobsQuery.Job>()
 
-    fun searchData(text: String){
-        for ( jobs in dataList){
-            if(jobs.title.toString().contains(text, true)){
-                searchList.add(jobs)
-            }
-        }
-        if(searchList.size!=0){
-          //  dataList.clear()
-            dataList = searchList
-        }
-    }
+
     fun setListData(data: MutableList<RemoteJobsQuery.Job>){
              dataList=data
     }
@@ -66,6 +56,7 @@ class RemoteJobAdapter(var c: Context, var activity: Int): RecyclerView.Adapter<
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: MyRemoteJobViewHolder, position: Int) {
 
         if (dataList.size!=0) {

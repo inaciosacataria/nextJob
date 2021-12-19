@@ -57,6 +57,10 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array com_google_android_gms_fonts_certs
+array com_google_android_gms_fonts_certs_dev
+array com_google_android_gms_fonts_certs_prod
+array preloaded_fonts
 attr ConstraintRotate
 attr SharedValue
 attr SharedValueId
@@ -1870,7 +1874,9 @@ drawable template
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font aladin
 font alfa_slab_one
+font amaranth_bold_italic
 font bungee_shade
 id ALT
 id BOTTOM_END
@@ -2259,6 +2265,7 @@ id selection_type
 id sharedValueSet
 id sharedValueUnset
 id shimer
+id shimer2
 id shimerRecentlyJobs
 id shortcut
 id showCustom
@@ -2321,6 +2328,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id textView12
 id textView13
 id textView14
@@ -2534,6 +2542,7 @@ layout remote_jobs_activity_adapter
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout shimme_all_remote_jobs_activity
 layout shimmer_recently_jobs_main_activity
 layout shimmer_remote_jobs
 layout support_simple_spinner_dropdown_item

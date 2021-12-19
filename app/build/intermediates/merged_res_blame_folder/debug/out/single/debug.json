@@ -4,12 +4,12 @@
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_all_job_adapter.xml.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\all_job_adapter.xml"
+    },
+    {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable_grad.xml.flat",
@@ -132,6 +132,10 @@
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\activity_splash.xml"
     },
     {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\font_aladin.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\font\\aladin.xml"
+    },
+    {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_background.jpg.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\drawable-v24\\background.jpg"
     },
@@ -168,6 +172,10 @@
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\drawable-v24\\jk.png"
     },
     {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\font_amaranth_bold_italic.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\font\\amaranth_bold_italic.xml"
+    },
+    {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_shimmer_remote_jobs.xml.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\shimmer_remote_jobs.xml"
     },
@@ -186,6 +194,10 @@
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_shimme_all_remote_jobs_activity.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\shimme_all_remote_jobs_activity.xml"
     },
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_lupa.xml.flat",

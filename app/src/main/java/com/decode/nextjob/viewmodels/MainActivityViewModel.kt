@@ -21,17 +21,25 @@ class MainActivityViewModel: ViewModel() {
         return mutableData
     }
 
-    fun searchJobs(text: String){//}: LiveData<MutableList<JobsQuery.Job>>{
-        val mutableData = fectchJobsData()
-        val mutableSearchData = MutableLiveData<MutableList<JobsQuery.Job>>()
-
-    //    for (var job in mu)
-
+    fun searchJobs(text: String): LiveData<MutableList<JobsQuery.Job>>{
+        val mutableData= MutableLiveData<MutableList<JobsQuery.Job>>()
+        repo.searchjobs(text).observeForever{
+            mutableData.value=it
+        }
+        return mutableData
     }
 
     fun fetchRemoteJobs(): LiveData<MutableList<RemoteJobsQuery.Job>>{
         var mutableData =MutableLiveData<MutableList<RemoteJobsQuery.Job>>()
         repo.getRemoteJobs().observeForever {
+            mutableData.value=it
+        }
+        return mutableData
+    }
+
+    fun searchRemoteJobs(text: String): LiveData<MutableList<RemoteJobsQuery.Job>>{
+        val mutableData= MutableLiveData<MutableList<RemoteJobsQuery.Job>>()
+        repo.searchRemoteJobs(text).observeForever{
             mutableData.value=it
         }
         return mutableData

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.decode.nextjob.R
+import com.decode.nextjob.helpers.helperNet
 import com.decode.nextjob.helpers.helpers
 import kotlinx.android.synthetic.main.info_job.*
 
@@ -18,6 +19,17 @@ class JobInfo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.info_job)
 
+
+
+
+        if(!helperNet.isNetworkAvailable(this)){
+            showdialog(this)
+        }else{
+            initialize()
+        }
+    }
+
+    fun initialize(){
         var bundle = intent.extras
         txvTitleJobInfo.setText(bundle!!.getString("tittle"))
         txvComitmentInfo.setText(bundle!!.getString("commitment"))
@@ -41,16 +53,16 @@ class JobInfo : AppCompatActivity() {
             onBackPressed()
         }
 
-       txvApply.setOnClickListener{
+        txvApply.setOnClickListener{
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(bundle!!.getString("applyUrl")))
-                startActivity(browserIntent);
+            startActivity(browserIntent);
         }
 
         btnShareLink.setOnClickListener{
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, "Welcome to your NextJob, apply on this role\n\nPosition: "+txvTitleJobInfo.text+"\n"+"Company: "+txvCompanyInfo.text+
-                "\nCommitment: "+txvComitmentInfo.text+"\n\nApply now on\n"+bundle!!.getString("applyUrl")+"\n\n\nTo find more jobs download the NextJob on playstore https://bit.ly/decodeinc")
+                        "\nCommitment: "+txvComitmentInfo.text+"\n\nApply now on\n"+bundle!!.getString("applyUrl")+"\n\n\nTo find more jobs download the NextJob on playstore https://bit.ly/decodeinc")
                 type = "text/plain"
             }
 
@@ -61,12 +73,8 @@ class JobInfo : AppCompatActivity() {
 
 
 
-
-
-        if(!helpers.isInternetAvailable()){
-            showdialog(this)
-        }
     }
+
     fun showdialog(c: Context){
         val alert= AlertDialog.Builder(c);
         alert.setMessage("Check out your internet connection and find out your next jobs")
@@ -82,5 +90,14 @@ class JobInfo : AppCompatActivity() {
             .setIcon(R.drawable.no_internet).create()
 
         alert.show()
+    }
+
+    override fun onResume() {
+        if(!helperNet.isNetworkAvailable(this)){
+            showdialog(this)
+        }else{
+            initialize()
+        }
+        super.onResume()
     }
 }

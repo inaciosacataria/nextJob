@@ -2,6 +2,7 @@ package com.decode.nextjob.adapter
 
 import android.content.Context
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,17 +28,8 @@ class AllJobsAdapter(var context:Context,var viewID: Int) : RecyclerView.Adapter
         return dataList[position]
     }
 
-    fun searchData(text: String?){
-        for ( jobs in dataList){
-            if(jobs.title.toString().contains(text!!,false)){
-                searchList.add(jobs)
-            }
-        }
-        if(searchList.size!=0){
-        //    dataList.clear()
-            dataList = searchList
-        }
-    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllJobsViewHolder {
 
        lateinit var view:View
