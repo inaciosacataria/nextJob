@@ -1,54 +1,88 @@
 package com.decode.nextjob.ui
 
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.provider.Settings
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.core.widget.addTextChangedListener
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.decode.nextjob.R
 import com.decode.nextjob.adapter.AllJobsAdapter
-import com.decode.nextjob.adapter.RecenlyJobAdatapter
 import com.decode.nextjob.adapter.RemoteJobAdapter
 import com.decode.nextjob.helpers.Constants
+import com.decode.nextjob.helpers.helpers
 import com.decode.nextjob.viewmodels.MainActivityViewModel
-import com.example.nextjob.RemoteJobsQuery
 import io.github.horaciocome1.simplerecyclerviewtouchlistener.addOnItemClickListener
 
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.all_jobs_activity.*
-import kotlinx.android.synthetic.main.header.*
 import kotlinx.android.synthetic.main.header.editMainSearch
+
 
 class MainActivity : AppCompatActivity() {
 
 
     private lateinit var remoteJobAdapter:RemoteJobAdapter
-    private lateinit var recenlyJobAdapter: AllJobsAdapter
+    private lateinit var allJobsAdapter: AllJobsAdapter
     val  mayMainVM : MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-      txvShowAllRemoteJobs.setOnClickListener {
-          startActivity(Intent(this, AllJobsActivity::class.java))
-      }
 
 
-        recenlyJobAdapter= AllJobsAdapter(this,Constants.MAIN_ACTIVIY_ID)
+           setContentView(R.layout.activity_main)
+           if(!helpers.isInternetAvailable()){
+               showdialog(this)
+           }else{
+               initialize()
+           }
+
+
+
+
+
+
+
+        }
+
+    fun showdialog(c: Context){
+        val alert= AlertDialog.Builder(c);
+        alert.setMessage("Check out your internet connection and find out your next jobs")
+            .setCancelable(false)
+            .setPositiveButton("Check again", DialogInterface.OnClickListener { dialogInterface, i ->
+                if (!helpers.isInternetAvailable()){
+                    startActivity(Intent(Settings.ACTION_WIRELESS_SETTINGS))
+                }
+
+            }).setNegativeButton("Exit", DialogInterface.OnClickListener { dialogInterface, i ->
+                 finish()
+                    }).setTitle("Ups, Connection")
+            .setIcon(R.drawable.no_internet).create()
+
+       alert.show()
+    }
+
+    fun initialize(){
+
+        txvShowAllRemoteJobs.setOnClickListener {
+            startActivity(Intent(this, AllRemoteJobsActivity::class.java))
+        }
+
+        txvShowAllJobs.setOnClickListener {
+            startActivity(Intent(this, AllJobsActivity::class.java))
+        }
+
+        allJobsAdapter= AllJobsAdapter(this,Constants.MAIN_ACTIVIY_ID)
         rcvRencentlyJobs.layoutManager=LinearLayoutManager(this)
         rcvRencentlyJobs.setHasFixedSize(true)
         recentlyJobs()
-        rcvRencentlyJobs.adapter= recenlyJobAdapter
+        rcvRencentlyJobs.adapter= allJobsAdapter
 
         rcvRencentlyJobs.addOnItemClickListener{ it, pos->
 
@@ -58,7 +92,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        remoteJobAdapter= RemoteJobAdapter(this)
+        remoteJobAdapter= RemoteJobAdapter(this,1)
         observeRemoteData()
         rcvMainRemoteJobs.adapter= remoteJobAdapter!!
         rcvMainRemoteJobs.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
@@ -76,19 +110,19 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextSubmit(query: String?): Boolean {
-                recenlyJobAdapter.searchData(query)
-                recenlyJobAdapter.notifyDataSetChanged()
+                allJobsAdapter.searchData(query)
+                allJobsAdapter.notifyDataSetChanged()
                 return false
             }
         })
-        }
+    }
 
         fun passToInfoActivity(jobtype:String, pos : Int){
 
             var infoIntent= Intent(this, JobInfo::class.java);
             if(jobtype.equals("recentlyJobs")) {
 
-                 var job = recenlyJobAdapter.getDataList(pos)
+                 var job = allJobsAdapter.getDataList(pos)
                 Log.d("example",job.applyUrl+" ---- "+ job.title)
 
                 infoIntent.putExtra("tittle",job.title);
@@ -122,10 +156,10 @@ class MainActivity : AppCompatActivity() {
         shimerRecentlyJobs.visibility=View.VISIBLE
         shimerRecentlyJobs.startShimmer()
         mayMainVM.fectchJobsData().observe(this,{
-            recenlyJobAdapter.setDataList(it)
+            allJobsAdapter.setDataList(it)
             shimerRecentlyJobs.stopShimmer()
             shimerRecentlyJobs.visibility= View.GONE
-            recenlyJobAdapter.notifyDataSetChanged()
+            allJobsAdapter.notifyDataSetChanged()
         })
     }
     fun observeRemoteData(){

@@ -1,36 +1,33 @@
 package com.decode.nextjob.adapter
 
+import android.R.string
 import android.content.Context
+import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.decode.nextjob.R
-import com.decode.nextjob.viewmodels.MainActivityViewModel
-import com.example.nextjob.JobsQuery
-import com.example.nextjob.JobsQuery.Remote
+import com.decode.nextjob.helpers.DateTimeHelper
 import com.example.nextjob.RemoteJobsQuery
-import kotlinx.android.synthetic.main.remote_job_wite_adapter.view.*
-import kotlinx.android.synthetic.main.remote_job_wite_adapter.view.txvComitmentMain
-import kotlinx.android.synthetic.main.remote_job_wite_adapter.view.txvCompanyMain
-import kotlinx.android.synthetic.main.remote_job_wite_adapter.view.txvLocationMain
-import kotlinx.android.synthetic.main.remote_job_wite_adapter.view.txvTitleJobMain
-import java.sql.Timestamp
-import java.time.LocalTime
+import kotlinx.android.synthetic.main.remote_job_adapter.view.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 
-class RemoteJobAdapter (var c:Context ): RecyclerView.Adapter<RemoteJobAdapter.MyRemoteJobViewHolder>() {
+class RemoteJobAdapter(var c: Context, var activity: Int): RecyclerView.Adapter<RemoteJobAdapter.MyRemoteJobViewHolder>() {
 
     private var dataList = mutableListOf<RemoteJobsQuery.Job>()
     private var searchList = mutableListOf<RemoteJobsQuery.Job>()
 
     fun searchData(text: String){
         for ( jobs in dataList){
-            if(jobs.title.toString().contains(text,true)){
+            if(jobs.title.toString().contains(text, true)){
                 searchList.add(jobs)
             }
         }
@@ -43,20 +40,30 @@ class RemoteJobAdapter (var c:Context ): RecyclerView.Adapter<RemoteJobAdapter.M
              dataList=data
     }
 
-    fun getListData (position: Int): RemoteJobsQuery.Job{
+    fun getListData(position: Int): RemoteJobsQuery.Job{
         return dataList[position];
     }
 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyRemoteJobViewHolder {
-       var view= LayoutInflater.from(parent.context).inflate(
-           R.layout.remote_job_wite_adapter,
-               parent,
-               false
-       )
-
-        return MyRemoteJobViewHolder(view)
+        if(activity==1){
+            return MyRemoteJobViewHolder(
+                LayoutInflater.from(parent.context).inflate(
+                    R.layout.remote_job_adapter,
+                    parent,
+                    false
+                )
+            )
+        }else{
+            return MyRemoteJobViewHolder(
+                LayoutInflater.from(parent.context).inflate(
+                    R.layout.remote_jobs_activity_adapter,
+                    parent,
+                    false
+                )
+            )
+        }
     }
 
     override fun onBindViewHolder(holder: MyRemoteJobViewHolder, position: Int) {
@@ -83,14 +90,17 @@ class RemoteJobAdapter (var c:Context ): RecyclerView.Adapter<RemoteJobAdapter.M
         public var img= itemView.findViewById<ImageView>(R.id.imgCompanyNameMain)
 
 
-        fun bindindView(remoteJob:RemoteJobsQuery.Job){
+        @RequiresApi(Build.VERSION_CODES.O)
+        fun bindindView(remoteJob: RemoteJobsQuery.Job){
 
             itemView.txvTitleJobMain.setText(remoteJob.title)
             itemView.txvComitmentMain.setText(remoteJob.commitment.title)
             itemView.txvCompanyMain.setText(remoteJob.company?.name)
 
+
+            itemView.txvtimeMain.setText(DateTimeHelper.getDateTime(remoteJob.postedAt.toString()))
          //   var time: Timestamp= remoteJob.postedAt as Timestamp
-         //   Log.d("timestamp", time.time.toString())
+          Log.d("timestamp", remoteJob.postedAt.toString())
             var location = "remote"
 
             itemView.txvLocationMain.text=(location)
@@ -107,6 +117,9 @@ class RemoteJobAdapter (var c:Context ): RecyclerView.Adapter<RemoteJobAdapter.M
 
 
         }
+
+
+
 
 
 

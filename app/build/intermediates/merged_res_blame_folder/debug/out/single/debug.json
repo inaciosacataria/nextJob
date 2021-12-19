@@ -8,6 +8,10 @@
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_all_job_adapter.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\all_job_adapter.xml"
+    },
+    {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable_grad.xml.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\drawable\\grad.xml"
     },
@@ -20,16 +24,12 @@
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\header.xml"
     },
     {
-        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_remote_jobs_layout.xml.flat",
-        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\remote_jobs_layout.xml"
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_share.png.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\drawable-v24\\share.png"
     },
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_all_job_white_adapter.xml.flat",
-        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\all_job_white_adapter.xml"
     },
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_companysvgwhite.xml.flat",
@@ -80,6 +80,10 @@
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_remote_job_adapter.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\remote_job_adapter.xml"
+    },
+    {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\font_alfa_slab_one.ttf.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\font\\alfa_slab_one.ttf"
     },
@@ -90,6 +94,10 @@
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_all_remote_jobs.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\activity_all_remote_jobs.xml"
     },
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_four_squares.xml.flat",
@@ -108,10 +116,6 @@
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_remote_job_wite_adapter.xml.flat",
-        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\remote_job_wite_adapter.xml"
-    },
-    {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_template.png.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\drawable-v24\\template.png"
     },
@@ -122,6 +126,10 @@
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_splash.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\activity_splash.xml"
     },
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_background.jpg.flat",
@@ -156,16 +164,12 @@
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\drawable\\gradwi.xml"
     },
     {
-        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_welcome.xml.flat",
-        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\welcome.xml"
-    },
-    {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_jk.png.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\drawable-v24\\jk.png"
     },
     {
-        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_recently_job_adapter.xml.flat",
-        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\recently_job_adapter.xml"
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_shimmer_remote_jobs.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\shimmer_remote_jobs.xml"
     },
     {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
@@ -184,11 +188,11 @@
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_nointernet_layout.xml.flat",
-        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\nointernet_layout.xml"
-    },
-    {
         "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_lupa.xml.flat",
         "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\drawable\\ic_lupa.xml"
+    },
+    {
+        "merged": "D:\\Decode\\nextjob\\app\\build\\intermediates\\res\\merged\\debug\\layout_remote_jobs_activity_adapter.xml.flat",
+        "source": "D:\\Decode\\nextjob\\app\\src\\main\\res\\layout\\remote_jobs_activity_adapter.xml"
     }
 ]

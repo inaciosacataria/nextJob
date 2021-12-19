@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECEAEA"
+
     tools:context=".ui.MainActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/btnMenu"
+        android:id="@+id/btnBackAll"
         android:layout_width="54dp"
         android:layout_height="54dp"
 
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="38dp"
         app:cardCornerRadius="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,64 +26,42 @@
             app:srcCompat="@drawable/back" />
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/textView"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="8dp"
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="All Jobs"
+
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBackAll"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toEndOf="@+id/btnMenu"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo2" />
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toEndOf="@+id/btnBackAll"
+        app:layout_constraintTop_toTopOf="@+id/btnBackAll" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
-        android:layout_width="301dp"
-        android:layout_height="54dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/cardView2"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMenu">
+        app:layout_constraintTop_toBottomOf="@+id/btnBackAll">
 
-        <EditText
+        <SearchView
             android:id="@+id/editMainSearch"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
-            android:ems="10"
+            android:background="@drawable/edit_text_backgroud"
             android:inputType="textPersonName"
             android:padding="5dp"
-            android:paddingStart="16dp"
-            android:hint="Search" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="#0B0B0B"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cardView4"
-        app:layout_constraintTop_toTopOf="@+id/cardView4">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            app:srcCompat="@drawable/ic_lupa" />
+            android:paddingStart="16dp" />
     </androidx.cardview.widget.CardView>
 
 
@@ -97,6 +75,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView4"
-        tools:listitem="@layout/all_job_white_adapter" />
+        tools:listitem="@layout/all_job_adapter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

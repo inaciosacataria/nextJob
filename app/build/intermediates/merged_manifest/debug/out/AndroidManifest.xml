@@ -9,6 +9,8 @@
         android:targetSdkVersion="30" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -20,8 +22,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Nextjob" >
-        <activity android:name="com.decode.nextjob.ui.AllJobsActivity" >
-        </activity>
+        <activity android:name="com.decode.nextjob.ui.SplashActivity" />
+        <activity android:name="com.decode.nextjob.ui.AllRemoteJobsActivity" />
+        <activity android:name="com.decode.nextjob.ui.AllJobsActivity" />
         <activity android:name="com.decode.nextjob.ui.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,8 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.decode.nextjob.ui.JobInfo" >
-        </activity>
+        <activity android:name="com.decode.nextjob.ui.JobInfo" />
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"

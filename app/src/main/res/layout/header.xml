@@ -15,7 +15,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="Find Your\nCreative Job"
-        android:textColor="#090909"
+
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

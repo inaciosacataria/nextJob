@@ -3,6 +3,8 @@
     package="com.decode.nextjob">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,23 +13,17 @@
         android:roundIcon="@drawable/logo2"
         android:supportsRtl="true"
         android:theme="@style/Theme.Nextjob">
-        <activity android:name=".ui.AllJobsActivity">
-
-        </activity>
-
+        <activity android:name=".ui.SplashActivity"></activity>
+        <activity android:name=".ui.AllRemoteJobsActivity" />
+        <activity android:name=".ui.AllJobsActivity" />
         <activity android:name=".ui.MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
-        <activity android:name=".ui.JobInfo">
-
-        </activity>
+        <activity android:name=".ui.JobInfo" />
     </application>
 
 </manifest>

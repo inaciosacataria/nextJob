@@ -14,7 +14,7 @@ class RecenlyJobAdatapter(context:Context): RecyclerView.Adapter<RecenlyJobAdata
         viewType: Int
     ): MyRecentlyJobAdapteViewHolder {
 
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.recently_job_adapter,parent,false)
+        var view = LayoutInflater.from(parent.context).inflate(R.layout.all_job_adapter,parent,false)
         return MyRecentlyJobAdapteViewHolder(view)
     }
 

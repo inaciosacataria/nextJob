@@ -6,6 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         tools:context=".ui.MainActivity"
         >
 
@@ -37,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Remote Jobs"
-                android:textColor="#070707"
+
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,9 +73,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <include layout="@layout/remote_jobs_layout" />
+                    <include layout="@layout/shimmer_remote_jobs" />
 
-                    <include layout="@layout/remote_jobs_layout" />
+                    <include layout="@layout/shimmer_remote_jobs" />
                 </LinearLayout>
 
 
@@ -90,7 +91,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5"
-                tools:listitem="@layout/remote_job_wite_adapter" />
+                tools:listitem="@layout/remote_job_adapter" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvRencentlyJobs"
@@ -100,7 +101,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12"
-                tools:listitem="@layout/recently_job_adapter" />
+                tools:listitem="@layout/all_job_adapter" />
 
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/shimerRecentlyJobs"
