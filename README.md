@@ -3,6 +3,8 @@
  # nextJob
  Find your dream Job
  
+ Download this app on https://bit.ly/younextjob
+ 
  The idea of the application is to help users find job opportunities and internships that exist on the internet in an organized way, using
  external api of credible information.
 
