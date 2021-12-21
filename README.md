@@ -11,7 +11,7 @@
  
  
  # Screenshots
- <img src="https://github.com/inaciosacataria/nextJob/blob/main/screenshots/device-2021-10-06-014829.png" alt="drawing" width="280"/>  <img src="https://github.com/inaciosacataria/nextJob/blob/main/screenshots/device-2021-10-06-015552.png" alt="drawing" width="280"/>  <img src="https://github.com/inaciosacataria/nextJob/blob/main/screenshots/device-2021-10-06-025401.png" alt="drawing" width="280"/>
+ <img src="https://github.com/inaciosacataria/nextJob/blob/main/screenshots/device-2021-10-06-014829.png" alt="drawing" width="280"/><img src="https://github.com/inaciosacataria/nextJob/blob/main/screenshots/device-2021-10-06-015552.png" alt="drawing" width="280"/><img src="https://github.com/inaciosacataria/nextJob/blob/main/screenshots/device-2021-10-06-025401.png" alt="drawing" width="280"/>
  
  ## Arquitecture
  MVVM
