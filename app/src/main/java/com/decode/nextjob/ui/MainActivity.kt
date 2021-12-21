@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     fun showdialog(c: Context){
         val alert= AlertDialog.Builder(c);
         alert.setMessage("Check out your internet connection and find out your next jobs")
-            .setCancelable(false)
+            .setCancelable(true)
             .setPositiveButton("Check again", DialogInterface.OnClickListener { dialogInterface, i ->
                 if (!helpers.isInternetAvailable()){
                     startActivity(Intent(Settings.ACTION_WIRELESS_SETTINGS))
@@ -185,11 +185,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        if(helperNet.isNetworkAvailable(this)){
-            initialize()
-        }else{
-            showdialog(this)
-        }
+
         super.onResume()
     }
 }

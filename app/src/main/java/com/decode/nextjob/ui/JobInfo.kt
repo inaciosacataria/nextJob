@@ -50,7 +50,7 @@ class JobInfo : AppCompatActivity() {
         }
 
         btnBack.setOnClickListener{
-            onBackPressed()
+           finish()
         }
 
         txvApply.setOnClickListener{
@@ -78,7 +78,7 @@ class JobInfo : AppCompatActivity() {
     fun showdialog(c: Context){
         val alert= AlertDialog.Builder(c);
         alert.setMessage("Check out your internet connection and find out your next jobs")
-            .setCancelable(false)
+            .setCancelable(true)
             .setPositiveButton("Check again", DialogInterface.OnClickListener { dialogInterface, i ->
                 if (!helpers.isInternetAvailable()){
                     startActivity(Intent(Settings.ACTION_WIRELESS_SETTINGS))
@@ -90,14 +90,11 @@ class JobInfo : AppCompatActivity() {
             .setIcon(R.drawable.no_internet).create()
 
         alert.show()
+
     }
 
     override fun onResume() {
-        if(!helperNet.isNetworkAvailable(this)){
-            showdialog(this)
-        }else{
-            initialize()
-        }
+
         super.onResume()
     }
 }

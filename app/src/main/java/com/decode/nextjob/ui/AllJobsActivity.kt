@@ -53,7 +53,7 @@ class AllJobsActivity : AppCompatActivity() {
         }
 
         btnBackAll.setOnClickListener {
-            onBackPressed()
+          finish()
 
         }
         editMainSearch.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener{
@@ -73,7 +73,7 @@ class AllJobsActivity : AppCompatActivity() {
     fun showdialog(c: Context){
         val alert= AlertDialog.Builder(c);
         alert.setMessage("Check out your internet connection and find out your next jobs")
-            .setCancelable(false)
+            .setCancelable(true)
             .setPositiveButton("Check again", DialogInterface.OnClickListener { dialogInterface, i ->
                 if (!helpers.isInternetAvailable()){
                     startActivity(Intent(Settings.ACTION_WIRELESS_SETTINGS))
@@ -139,11 +139,7 @@ class AllJobsActivity : AppCompatActivity() {
 
 
     override fun onResume() {
-        if(!helperNet.isNetworkAvailable(this)){
-            showdialog(this)
-        }else{
-            initialize()
-        }
+
         super.onResume()
     }
 }
