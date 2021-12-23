@@ -1,7 +1,7 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.decode.nextjob"
-4    android:versionCode="2"
+4    android:versionCode="3"
 5    android:versionName="1.0" >
 6
 7    <uses-sdk
@@ -35,58 +35,57 @@
 21-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:13:9-44
 22        android:supportsRtl="true"
 22-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:14:9-35
-23        android:testOnly="true"
-24        android:theme="@style/Theme.Nextjob" >
-24-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:15:9-45
-25        <activity android:name="com.decode.nextjob.ui.SplashActivity" >
-25-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:16:9-22:20
-25-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:16:19-52
-26            <intent-filter>
-26-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:17:13-21:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:18:17-69
-27-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:18:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:19:17-77
-29-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:19:27-74
-30
-31                <action android:name="android.intent.action.SEARCH" />
-31-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:20:17-71
-31-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:20:25-68
-32            </intent-filter>
-33        </activity>
-34        <activity android:name="com.decode.nextjob.ui.AllRemoteJobsActivity" />
-34-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:23:9-62
-34-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:23:19-59
-35        <activity android:name="com.decode.nextjob.ui.AllJobsActivity" />
-35-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:24:9-56
-35-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:24:19-53
-36        <activity android:name="com.decode.nextjob.ui.MainActivity" >
-36-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:9-27:20
-36-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:19-50
-37        </activity>
-38        <activity android:name="com.decode.nextjob.ui.JobInfo" />
-38-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:28:9-48
-38-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:28:19-45
-39
-40        <meta-data
-40-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:30:9-32:57
-41            android:name="preloaded_fonts"
-41-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:31:13-43
-42            android:resource="@array/preloaded_fonts" />
-42-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:32:13-54
-43
-44        <provider
-44-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
-45            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-45-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
-46            android:authorities="com.decode.nextjob.lifecycle-process"
-46-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
-47            android:exported="false"
-47-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
-48            android:multiprocess="true" />
-48-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
-49    </application>
-50
-51</manifest>
+23        android:theme="@style/Theme.Nextjob" >
+23-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:15:9-45
+24        <activity android:name="com.decode.nextjob.ui.SplashActivity" >
+24-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:16:9-22:20
+24-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:16:19-52
+25            <intent-filter>
+25-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:17:13-21:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:18:17-69
+26-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:18:25-66
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:19:17-77
+28-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:19:27-74
+29
+30                <action android:name="android.intent.action.SEARCH" />
+30-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:20:17-71
+30-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:20:25-68
+31            </intent-filter>
+32        </activity>
+33        <activity android:name="com.decode.nextjob.ui.AllRemoteJobsActivity" />
+33-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:23:9-62
+33-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:23:19-59
+34        <activity android:name="com.decode.nextjob.ui.AllJobsActivity" />
+34-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:24:9-56
+34-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:24:19-53
+35        <activity android:name="com.decode.nextjob.ui.MainActivity" >
+35-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:9-27:20
+35-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:19-50
+36        </activity>
+37        <activity android:name="com.decode.nextjob.ui.JobInfo" />
+37-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:28:9-48
+37-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:28:19-45
+38
+39        <meta-data
+39-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:30:9-32:57
+40            android:name="preloaded_fonts"
+40-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:31:13-43
+41            android:resource="@array/preloaded_fonts" />
+41-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:32:13-54
+42
+43        <provider
+43-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+44            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+44-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+45            android:authorities="com.decode.nextjob.lifecycle-process"
+45-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+46            android:exported="false"
+46-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+47            android:multiprocess="true" />
+47-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\cce21104f734d0fe2cad266d2436a9a2\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+48    </application>
+49
+50</manifest>
