@@ -4,6 +4,7 @@ import android.icu.text.CaseMap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.decode.nextjob.domain.data.JobRepositories
 import com.decode.nextjob.domain.data.Repositories
 import com.example.nextjob.JobsQuery
 import com.example.nextjob.RemoteJobsQuery
@@ -34,6 +35,8 @@ class MainActivityViewModel: ViewModel() {
         repo.getRemoteJobs().observeForever {
             mutableData.value=it
         }
+
+
         return mutableData
     }
 

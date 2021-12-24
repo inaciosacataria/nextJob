@@ -16,6 +16,7 @@ import com.decode.nextjob.R
 import com.decode.nextjob.adapter.RemoteJobAdapter
 import com.decode.nextjob.helpers.helperNet
 import com.decode.nextjob.helpers.helpers
+import com.decode.nextjob.viewmodels.IndeedJosVM
 import com.decode.nextjob.viewmodels.MainActivityViewModel
 import io.github.horaciocome1.simplerecyclerviewtouchlistener.addOnItemClickListener
 import kotlinx.android.synthetic.main.activity_all_remote_jobs.*
@@ -24,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_all_remote_jobs.*
 class AllRemoteJobsActivity : AppCompatActivity() {
 
     private lateinit var remoteJobAdapter: RemoteJobAdapter
-    val  viewModel : MainActivityViewModel by viewModels()
+    val  viewModel : IndeedJosVM by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,12 +83,12 @@ class AllRemoteJobsActivity : AppCompatActivity() {
     {
         shimer.visibility= View.VISIBLE
         shimer.startShimmer()
-        viewModel.searchRemoteJobs(s).observe(this,{
-            remoteJobAdapter.setListData(it)
-            shimer.stopShimmer()
-            shimer.visibility= View.GONE
-            remoteJobAdapter.notifyDataSetChanged()
-        })
+       //  viewModel.fetchRemoteJobs().observe(this,{
+       //     remoteJobAdapter.setListData(it)
+      //      shimer.stopShimmer()
+      //      shimer.visibility= View.GONE
+      //      remoteJobAdapter.notifyDataSetChanged()
+      //  })
     }
 
 
@@ -121,16 +122,16 @@ class AllRemoteJobsActivity : AppCompatActivity() {
 
 
             var job = remoteJobAdapter.getListData(pos)
-            Log.d("example",job.applyUrl+" ---- "+ job.title)
 
-            infoIntent.putExtra("tittle",job.title);
-            infoIntent.putExtra("commitment",job.commitment.title);
-            infoIntent.putExtra("photo",job.company!!.logoUrl);
-            infoIntent.putExtra("company",job.company!!.name);
-            infoIntent.putExtra("location","remote");
-            infoIntent.putExtra("date",job.postedAt.toString());
-            infoIntent.putExtra("description",job.description);
-            infoIntent.putExtra("applyUrl",job.applyUrl);
+
+        infoIntent.putExtra("tittle",job.job_title);
+        infoIntent.putExtra("commitment","fulltime");
+        infoIntent.putExtra("photo","https://image.winudf.com/v2/image1/Y29tLmluZGVlZC5hbmRyb2lkZW1wbG95ZXJzX2ljb25fMTU2MjIzMDk2Ml8wNTg/icon.png?w=&fakeurl=1");
+        infoIntent.putExtra("company",job.company_name);
+        infoIntent.putExtra("location",job.job_location);
+        infoIntent.putExtra("date",job.days_ago);
+        infoIntent.putExtra("description",job.Job_description);
+        infoIntent.putExtra("applyUrl",job.url);
 
         startActivity(infoIntent)
     }
