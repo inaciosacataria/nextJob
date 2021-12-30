@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id("com.apollographql.apollo").version("2.5.9")
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -81,6 +82,14 @@ dependencies {
 
     //item touc listener
     implementation 'com.github.horaciocome1:simple-recyclerview-touch-listener:0.2.2'
+
+    //Html text view
+    implementation 'org.sufficientlysecure:html-textview:4.0'
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation("com.google.firebase:firebase-messaging:11.4.0")
 }
 apollo {
 

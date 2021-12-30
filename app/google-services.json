@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "317944090579",
+    "project_id": "nextjob-a2d40",
+    "storage_bucket": "nextjob-a2d40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317944090579:android:e0fdf044d140e2890ae926",
+        "android_client_info": {
+          "package_name": "com.decode.nextjob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317944090579-rtt53qof77ue0ouauerbqvrqnpr2d9io.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.decode.nextjob",
+            "certificate_hash": "1079a4950dd14bc9a758a2ccc92b3022fbb195e1"
+          }
+        },
+        {
+          "client_id": "317944090579-hvlht34qt3qse1ma5v2bv38imha1vp7o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfyAC_ZIbxnHYs7-T01Wh2RVQxtVdEkq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317944090579-hvlht34qt3qse1ma5v2bv38imha1vp7o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

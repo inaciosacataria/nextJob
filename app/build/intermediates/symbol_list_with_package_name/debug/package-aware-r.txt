@@ -1078,6 +1078,7 @@ attr yearTodayStyle
 bool abc_action_bar_embed_tabs
 bool abc_config_actionMenuItemAllCaps
 bool mtrl_btn_textappearance_all_caps
+color White
 color abc_background_cache_hint_selector_material_dark
 color abc_background_cache_hint_selector_material_light
 color abc_btn_colored_borderless_text_material
@@ -1874,6 +1875,9 @@ drawable template
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable walkpaper3
+drawable wallpaper1
+drawable walpaper2
 font aladin
 font alfa_slab_one
 font amaranth_bold_italic
@@ -2103,7 +2107,6 @@ id ignoreRequest
 id image
 id imageButton
 id imageView
-id imageView7
 id imgCompanyNameInfo
 id imgCompanyNameMain
 id imgJobInfo
@@ -2332,9 +2335,9 @@ id textView
 id textView12
 id textView13
 id textView14
+id textView2
 id textView4
 id textView5
-id textView7
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2406,6 +2409,7 @@ integer cancel_button_image_alpha
 integer config_tooltipAnimTime
 integer design_snackbar_text_max_lines
 integer design_tab_indicator_anim_duration_ms
+integer google_play_services_version
 integer hide_password_duration
 integer material_motion_duration_long_1
 integer material_motion_duration_long_2
@@ -2600,10 +2604,18 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string common_google_play_services_unknown_issue
+string default_web_client_id
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string fcm_fallback_notification_channel_label
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
@@ -2668,6 +2680,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string project_id
 string search_menu_title
 string serverUrl
 string status_bar_notification_info_overflow

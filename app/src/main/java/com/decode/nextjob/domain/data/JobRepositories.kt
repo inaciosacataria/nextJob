@@ -15,7 +15,7 @@ class JobRepositories {
 
     var retrofit = RetrofitBuilder.getRetrofit()
 
-    public  fun searchByTitle(): LiveData<MutableList<Job>>{
+    public  fun getRemoteJobs(): LiveData<MutableList<Job>>{
 
         var dataList = MutableLiveData<MutableList<Job>>()
         lateinit var jobs:JobResponse
@@ -24,17 +24,50 @@ class JobRepositories {
             try {
                 val list = mutableListOf<Job>()
                 val call = retrofit.create(ApiService::class.java)
-                    .searchByTitle("indeed_jobs",
+                    .getAllRemoteJobd("indeed_jobs_detailed",
                         Constants.X_RapidAPI_Host,
                         Constants.X_RapidAPI_Key,
-                        "android")
+                        "android",
+                            "remote")
 
                 if (call.isSuccessful) {
                     jobs = call.body()!!
                     Log.d("jobbbb","jobbbb------ "+jobs.jobs)
                     for (job in jobs.jobs) {
                         list.add(job)
-                        Log.d("jobbbb","jobbbb------ "+job.job_title)
+                        Log.d("jobbbb","jobbbb------ "+job.is_remote)
+                    }
+                    dataList.postValue(list)
+                }
+            } catch (e : Exception){
+                Log.d("error","my error----- "+e.message)
+            }
+
+        }
+        return dataList
+    }
+
+    public  fun getAllJobs(): LiveData<MutableList<Job>>{
+
+        var dataList = MutableLiveData<MutableList<Job>>()
+        lateinit var jobs:JobResponse
+
+        GlobalScope.launch {
+            try {
+                val list = mutableListOf<Job>()
+                val call = retrofit.create(ApiService::class.java)
+                        .getAllJobs("indeed_jobs_detailed",
+                                Constants.X_RapidAPI_Host,
+                                Constants.X_RapidAPI_Key,
+                                "''",
+                                )
+
+                if (call.isSuccessful) {
+                    jobs = call.body()!!
+                    Log.d("jobbbb","jobbbb------ "+jobs.jobs)
+                    for (job in jobs.jobs) {
+                        list.add(job)
+                        Log.d("jobbbb","jobbbb------ "+job.is_remote)
                     }
                     dataList.postValue(list)
                 }

@@ -3,12 +3,15 @@ package com.decode.nextjob.ui
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import android.text.Html
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +30,7 @@ class AllRemoteJobsActivity : AppCompatActivity() {
     private lateinit var remoteJobAdapter: RemoteJobAdapter
     val  viewModel : IndeedJosVM by viewModels()
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_remote_jobs)
@@ -39,6 +43,8 @@ class AllRemoteJobsActivity : AppCompatActivity() {
 
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.N)
     fun  initialize(){
         btnBackAll.setOnClickListener {
           finish()
@@ -116,7 +122,9 @@ class AllRemoteJobsActivity : AppCompatActivity() {
         alert.show()
     }
 
-    fun passToInfoActivity( pos : Int){
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun passToInfoActivity(pos : Int){
 
         var infoIntent= Intent(this, JobInfo::class.java);
 
@@ -126,11 +134,13 @@ class AllRemoteJobsActivity : AppCompatActivity() {
 
         infoIntent.putExtra("tittle",job.job_title);
         infoIntent.putExtra("commitment","fulltime");
-        infoIntent.putExtra("photo","https://image.winudf.com/v2/image1/Y29tLmluZGVlZC5hbmRyb2lkZW1wbG95ZXJzX2ljb25fMTU2MjIzMDk2Ml8wNTg/icon.png?w=&fakeurl=1");
+        infoIntent.putExtra("photo",job.company_logo);
         infoIntent.putExtra("company",job.company_name);
-        infoIntent.putExtra("location",job.job_location);
+        infoIntent.putExtra("location",job.full_location);
         infoIntent.putExtra("date",job.days_ago);
-        infoIntent.putExtra("description",job.Job_description);
+
+        var description=  job.html_description
+        infoIntent.putExtra("description",description)
         infoIntent.putExtra("applyUrl",job.url);
 
         startActivity(infoIntent)

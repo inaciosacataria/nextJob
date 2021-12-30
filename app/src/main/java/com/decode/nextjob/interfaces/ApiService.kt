@@ -12,10 +12,19 @@ interface ApiService {
     suspend fun getJobs (@Url url: String): Response<JobResponse>
 
     @GET
-    suspend fun searchByTitle (
+    suspend fun getAllJobs (
+            @Url url: String,
+            @Header("x-rapidapi-host")x_rapidapi_host :String,
+            @Header("x-rapidapi-key") x_rapidapi_key :String,
+            @Query("search_query")search_query:String,
+    ): Response<JobResponse>
+
+    @GET
+    suspend fun getAllRemoteJobd (
         @Url url: String,
         @Header("x-rapidapi-host")x_rapidapi_host :String,
         @Header("x-rapidapi-key") x_rapidapi_key :String,
-        @Query("search_query") search_query:String
+        @Query("search_query")search_query:String,
+        @Query ("location") remote:String
     ): Response<JobResponse>
 }

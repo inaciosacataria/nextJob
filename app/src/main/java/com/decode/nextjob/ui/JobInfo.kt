@@ -6,13 +6,17 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.text.Html
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.toSpanned
 import com.bumptech.glide.Glide
 import com.decode.nextjob.R
 import com.decode.nextjob.helpers.helperNet
 import com.decode.nextjob.helpers.helpers
 import kotlinx.android.synthetic.main.info_job.*
+import org.sufficientlysecure.htmltextview.HtmlFormatter
+import org.sufficientlysecure.htmltextview.HtmlFormatterBuilder
 
 class JobInfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +39,11 @@ class JobInfo : AppCompatActivity() {
         txvComitmentInfo.setText(bundle!!.getString("commitment"))
         txvCompanyInfo.setText(bundle!!.getString("company"))
         txvLocationInfo.setText(bundle!!.getString("location"))
-        txvDescription.setText(bundle!!.getString("description"))
+
+
+        var descriotion= bundle!!.getString("description")
+        var spanned = HtmlFormatter.formatHtml(HtmlFormatterBuilder().setHtml(descriotion))
+        this.txvDescription.setText(spanned)
 
 
 
@@ -62,7 +70,7 @@ class JobInfo : AppCompatActivity() {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, "Welcome to your NextJob, apply on this role\n\nPosition: "+txvTitleJobInfo.text+"\n"+"Company: "+txvCompanyInfo.text+
-                        "\nCommitment: "+txvComitmentInfo.text+"\n\nApply now on\n"+bundle!!.getString("applyUrl")+"\n\n\nTo find more jobs download the NextJob on playstore https://bit.ly/decodeinc")
+                        "\nCommitment: "+txvComitmentInfo.text+"\n\nApply now on\n"+bundle!!.getString("applyUrl")+"\n\n\nTo find more jobs download the NextJob on playstore https://bit.ly/decode-inc")
                 type = "text/plain"
             }
 

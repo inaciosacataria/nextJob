@@ -1,4 +1,0 @@
-com/decode/nextjob/helpers/helperNet.java
- com.decode.nextjob.helpers.helperNet
-com/decode/nextjob/BuildConfig.java
- com.decode.nextjob.BuildConfig

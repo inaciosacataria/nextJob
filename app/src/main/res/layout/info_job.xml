@@ -190,7 +190,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <org.sufficientlysecure.htmltextview.HtmlTextView
                         android:id="@+id/txvDescription"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

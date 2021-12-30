@@ -86,19 +86,15 @@ class RemoteJobAdapter(var c: Context, var activity: Int): RecyclerView.Adapter<
         fun bindindView(remoteJob:Job){
 
             itemView.txvTitleJobMain.setText(remoteJob.job_title)
-            itemView.txvComitmentMain.setText("fulltime")
-            itemView.txvCompanyMain.setText(remoteJob.company_name)
-
-            if(!remoteJob.job_salary.isNullOrEmpty()){
-                itemView.txvSalaryMain.text= remoteJob.job_salary
-            }
+            itemView.txvComitmentMain.text= if(remoteJob.job_type.isNullOrEmpty()) "fulltime" else remoteJob.job_type
+            itemView.txvCompanyMain.text=  if(remoteJob.company_name.isNullOrEmpty()) "no company name" else remoteJob.company_name
+            itemView.txvSalaryMain.text= if(remoteJob.job_salary.isNullOrEmpty()) "no salary info" else remoteJob.job_salary
             itemView.txvtimeMain.setText(remoteJob.days_ago)
 
-            var location =remoteJob.job_location
-
+            var location =remoteJob.full_location
             itemView.txvLocationMain.text=(location)
 
-            var logoUrl="https://image.winudf.com/v2/image1/Y29tLmluZGVlZC5hbmRyb2lkZW1wbG95ZXJzX2ljb25fMTU2MjIzMDk2Ml8wNTg/icon.png?w=&fakeurl=1"
+            var logoUrl=remoteJob.company_logo
 
             if (logoUrl != null) {
                 if (logoUrl.isNotEmpty())

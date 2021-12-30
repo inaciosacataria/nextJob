@@ -119,16 +119,16 @@ class MainActivity : AppCompatActivity() {
             if(jobtype.equals("recentlyJobs")) {
 
                  var job = allJobsAdapter.getDataList(pos)
-                Log.d("example",job.applyUrl+" ---- "+ job.title)
 
-                infoIntent.putExtra("tittle",job.title);
-                infoIntent.putExtra("commitment",job.commitment.title);
-                infoIntent.putExtra("photo",job.company!!.logoUrl);
-                infoIntent.putExtra("company",job.company!!.name);
-                infoIntent.putExtra("location","remote");
-                infoIntent.putExtra("date",job.postedAt.toString());
-                infoIntent.putExtra("description",job.description);
-                infoIntent.putExtra("applyUrl",job.applyUrl);
+
+                infoIntent.putExtra("tittle",job.job_title);
+                infoIntent.putExtra("commitment",job.job_type);
+                infoIntent.putExtra("photo",job.company_logo);
+                infoIntent.putExtra("company",job.company_name);
+                infoIntent.putExtra("location",job.full_location);
+                infoIntent.putExtra("date",job.days_ago);
+                infoIntent.putExtra("description",job.html_description);
+                infoIntent.putExtra("applyUrl",job.url);
             }else{
                  var job = remoteJobAdapter.getListData(pos)
 
@@ -136,11 +136,11 @@ class MainActivity : AppCompatActivity() {
 
                 infoIntent.putExtra("tittle",job.job_title);
                 infoIntent.putExtra("commitment","fulltime");
-                infoIntent.putExtra("photo","https://image.winudf.com/v2/image1/Y29tLmluZGVlZC5hbmRyb2lkZW1wbG95ZXJzX2ljb25fMTU2MjIzMDk2Ml8wNTg/icon.png?w=&fakeurl=1");
+                infoIntent.putExtra("photo",job.company_logo);
                 infoIntent.putExtra("company",job.company_name);
-                infoIntent.putExtra("location",job.job_location);
+                infoIntent.putExtra("location",job.full_location);
                 infoIntent.putExtra("date",job.days_ago);
-                infoIntent.putExtra("description",job.Job_description);
+                infoIntent.putExtra("description",job.html_description);
                 infoIntent.putExtra("applyUrl",job.url);
             }
             startActivity(infoIntent)
@@ -151,7 +151,7 @@ class MainActivity : AppCompatActivity() {
     fun allJobs(){
         shimerRecentlyJobs.visibility=View.VISIBLE
         shimerRecentlyJobs.startShimmer()
-        mayMainVM.fectchJobsData().observe(this,{
+        indeed.fetchAllJobs().observe(this,{
             allJobsAdapter.setDataList(it)
             shimerRecentlyJobs.stopShimmer()
             shimerRecentlyJobs.visibility= View.GONE
@@ -164,10 +164,10 @@ class MainActivity : AppCompatActivity() {
         shimerRecentlyJobs.visibility=View.VISIBLE
         shimerRecentlyJobs.startShimmer()
         mayMainVM.searchJobs(s).observe(this,{
-            allJobsAdapter.setDataList(it)
+          //  allJobsAdapter.setDataList(it)
             shimerRecentlyJobs.stopShimmer()
             shimerRecentlyJobs.visibility= View.GONE
-            allJobsAdapter.notifyDataSetChanged()
+         //   allJobsAdapter.notifyDataSetChanged()
         })
     }
 

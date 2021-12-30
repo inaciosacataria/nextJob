@@ -12,19 +12,20 @@ import com.bumptech.glide.Glide
 import com.decode.nextjob.R
 import com.decode.nextjob.helpers.Constants
 import com.decode.nextjob.helpers.DateTimeHelper
+import com.decode.nextjob.models.Job
 import com.example.nextjob.JobsQuery
 import kotlinx.android.synthetic.main.all_job_adapter.view.*
 
 
 class AllJobsAdapter(var context:Context,var viewID: Int) : RecyclerView.Adapter<AllJobsAdapter.AllJobsViewHolder>() {
 
-    private var dataList= mutableListOf<JobsQuery.Job>()
-    private var searchList = mutableListOf<JobsQuery.Job>()
+    private var dataList= mutableListOf<Job>()
+    private var searchList = mutableListOf<Job>()
 
-    fun setDataList(data: MutableList<JobsQuery.Job>){
+    fun setDataList(data: MutableList<Job>){
         dataList= data
     }
-    fun getDataList(position: Int): JobsQuery.Job{
+    fun getDataList(position: Int): Job{
         return dataList[position]
     }
 
@@ -41,10 +42,11 @@ class AllJobsAdapter(var context:Context,var viewID: Int) : RecyclerView.Adapter
         return AllJobsViewHolder(view)
     }
 
-    fun getListData (position: Int): JobsQuery.Job{
+    fun getListData (position: Int): Job{
         return dataList[position];
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: AllJobsViewHolder, position: Int) {
 
         if(dataList.size!=0){
@@ -62,14 +64,12 @@ class AllJobsAdapter(var context:Context,var viewID: Int) : RecyclerView.Adapter
 
      //initializa data
      @RequiresApi(Build.VERSION_CODES.O)
-     fun initialzeData(job: JobsQuery.Job){
-            itemView.txvTitleJobMain.text= job.title
-            itemView.txvComitmentMain.text=job.commitment.title
-            itemView.txvCompanyMain.text=job.company?.name
-          // itemView.txvLocationMain.text= job.locationNames
-           // itemView.txvSalaryMain.text= "salary"
-            itemView.txvtimeMain.text = DateTimeHelper.getDateTime(job.postedAt.toString())
-            var photoUrl=job.company?.logoUrl
+     fun initialzeData(job: Job){
+            itemView.txvTitleJobMain.text= job.job_title
+            itemView.txvComitmentMain.text= if(job.job_type.isNullOrEmpty()) "fulltime" else job.job_type
+            itemView.txvCompanyMain.text= if(job.company_name.isNullOrEmpty()) "fulltime" else job.company_name
+            itemView.txvtimeMain.text = job.days_ago
+            var photoUrl=job.company_logo
 
             if (photoUrl==null || photoUrl?.isEmpty() == true)
                 itemView.imgCompanyNameMain.setImageResource(R.drawable.companylogo)
