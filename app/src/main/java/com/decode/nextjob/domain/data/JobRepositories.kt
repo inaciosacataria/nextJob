@@ -15,7 +15,7 @@ class JobRepositories {
 
     var retrofit = RetrofitBuilder.getRetrofit()
 
-    public  fun getRemoteJobs(): LiveData<MutableList<Job>>{
+    public  fun getRemoteJobs(searchQuery:String): LiveData<MutableList<Job>>{
 
         var dataList = MutableLiveData<MutableList<Job>>()
         lateinit var jobs:JobResponse
@@ -27,7 +27,7 @@ class JobRepositories {
                     .getAllRemoteJobd("indeed_jobs_detailed",
                         Constants.X_RapidAPI_Host,
                         Constants.X_RapidAPI_Key,
-                        "android",
+                        searchQuery,
                             "remote")
 
                 if (call.isSuccessful) {
@@ -47,7 +47,7 @@ class JobRepositories {
         return dataList
     }
 
-    public  fun getAllJobs(): LiveData<MutableList<Job>>{
+    public  fun getAllJobs(searchQuery: String): LiveData<MutableList<Job>>{
 
         var dataList = MutableLiveData<MutableList<Job>>()
         lateinit var jobs:JobResponse
@@ -59,7 +59,7 @@ class JobRepositories {
                         .getAllJobs("indeed_jobs_detailed",
                                 Constants.X_RapidAPI_Host,
                                 Constants.X_RapidAPI_Key,
-                                "''",
+                                searchQuery,
                                 )
 
                 if (call.isSuccessful) {

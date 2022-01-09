@@ -10,17 +10,17 @@ class IndeedJosVM : ViewModel() {
 
     private val repo = JobRepositories()
 
-    fun fetchRemoteJobs(): LiveData<MutableList<Job>>{
+    fun fetchRemoteJobs(searchQuery:String): LiveData<MutableList<Job>>{
         var mutableData = MutableLiveData<MutableList<Job>>()
-        repo.getRemoteJobs().observeForever {
+        repo.getRemoteJobs(searchQuery).observeForever {
             mutableData.value=it
         }
         return mutableData
     }
 
-    fun fetchAllJobs(): LiveData<MutableList<Job>>{
+    fun fetchAllJobs(searchQuery:String): LiveData<MutableList<Job>>{
         var mutableData = MutableLiveData<MutableList<Job>>()
-        repo.getAllJobs().observeForever {
+        repo.getAllJobs(searchQuery).observeForever {
             mutableData.value=it
         }
         return mutableData

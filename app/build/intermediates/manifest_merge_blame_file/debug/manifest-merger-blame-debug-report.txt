@@ -33,7 +33,7 @@
 17-->[com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\1e3c8a6175acda17fe7a728112820511\jetified-play-services-ads-identifier-18.0.0\AndroidManifest.xml:23:22-76
 18
 19    <application
-19-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:12:5-51:19
+19-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:12:5-52:19
 20        android:allowBackup="true"
 20-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:13:9-35
 21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -51,64 +51,64 @@
 28        android:theme="@style/Theme.Nextjob" >
 28-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:18:9-45
 29        <service
-29-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:21:9-27:19
+29-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:21:9-28:19
 30            android:name="com.decode.nextjob.util.MyFirebaseMessaging"
 30-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:21:18-58
 31            android:exported="false" >
 31-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:22:13-37
 32            <intent-filter>
-32-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:24:10-26:26
+32-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:10-27:26
 33                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-33-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:14-74
-33-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:22-72
+33-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:26:14-74
+33-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:26:22-72
 34            </intent-filter>
 35        </service>
 36
 37        <meta-data
-37-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:30:9-32:50
+37-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:31:9-33:50
 38            android:name="com.google.firebase.messaging.default_notification_icon"
-38-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:31:13-83
+38-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:32:13-83
 39            android:resource="@drawable/logo2" />
-39-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:32:13-47
+39-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:33:13-47
 40
 41        <activity android:name="com.decode.nextjob.ui.SplashActivity" >
-41-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:34:9-40:20
-41-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:34:19-52
+41-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:35:9-41:20
+41-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:35:19-52
 42            <intent-filter>
-42-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:35:13-39:29
+42-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:36:13-40:29
 43                <action android:name="android.intent.action.MAIN" />
-43-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:36:17-69
-43-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:36:25-66
+43-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:37:17-69
+43-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:37:25-66
 44
 45                <category android:name="android.intent.category.LAUNCHER" />
-45-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:37:17-77
-45-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:37:27-74
+45-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:38:17-77
+45-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:38:27-74
 46
 47                <action android:name="android.intent.action.SEARCH" />
-47-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:38:17-71
-47-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:38:25-68
+47-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:39:17-71
+47-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:39:25-68
 48            </intent-filter>
 49        </activity>
 50        <activity android:name="com.decode.nextjob.ui.AllRemoteJobsActivity" />
-50-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:41:9-62
-50-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:41:19-59
+50-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:42:9-62
+50-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:42:19-59
 51        <activity android:name="com.decode.nextjob.ui.AllJobsActivity" />
-51-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:42:9-56
-51-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:42:19-53
+51-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:43:9-56
+51-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:43:19-53
 52        <activity android:name="com.decode.nextjob.ui.MainActivity" >
-52-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:43:9-45:20
-52-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:43:19-50
+52-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:44:9-46:20
+52-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:44:19-50
 53        </activity>
 54        <activity android:name="com.decode.nextjob.ui.JobInfo" />
-54-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:46:9-48
-54-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:46:19-45
+54-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:47:9-48
+54-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:47:19-45
 55
 56        <meta-data
-56-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:48:9-50:57
+56-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:49:9-51:57
 57            android:name="preloaded_fonts"
-57-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:49:13-43
+57-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:50:13-43
 58            android:resource="@array/preloaded_fonts" />
-58-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:50:13-54
+58-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:51:13-54
 59
 60        <receiver
 60-->[com.google.firebase:firebase-messaging:23.0.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\257065b20c0f90de50c343180361f985\jetified-firebase-messaging-23.0.0\AndroidManifest.xml:28:9-35:20
@@ -138,10 +138,10 @@
 75            android:exported="false" >
 75-->[com.google.firebase:firebase-messaging:23.0.0] C:\Users\Inacio Sacataria\.gradle\caches\transforms-2\files-2.1\257065b20c0f90de50c343180361f985\jetified-firebase-messaging-23.0.0\AndroidManifest.xml:44:13-37
 76            <intent-filter android:priority="-500" >
-76-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:24:10-26:26
+76-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:10-27:26
 77                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-77-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:14-74
-77-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:25:22-72
+77-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:26:14-74
+77-->D:\Decode\nextjob\app\src\main\AndroidManifest.xml:26:22-72
 78            </intent-filter>
 79        </service>
 80        <service

@@ -17,14 +17,80 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAndroid"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Android"
+                android:textSize="16dp"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                app:checkedIconEnabled="true"
+                android:checked="true"
+                app:checkedIconTint="@color/black"
+                app:checkedIcon="@drawable/done" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBackend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Backend"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:textSize="16dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipFrontend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frontend"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:textSize="16dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipUxDesign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UX/UI Design"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:textSize="16dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipIntern"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Internship"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:textSize="16dp" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include">
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

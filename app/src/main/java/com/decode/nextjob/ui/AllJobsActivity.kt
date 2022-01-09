@@ -95,7 +95,7 @@ class AllJobsActivity : AppCompatActivity() {
     fun obeserveAlljobsData(){
         shimer2.visibility= View.VISIBLE
         shimer2.startShimmer()
-        viewModels.fetchAllJobs().observe(this,{
+        viewModels.fetchAllJobs("android").observe(this,{
             allJobsAdapter.setDataList(it)
             shimer2.stopShimmer()
             shimer2.visibility= View.GONE

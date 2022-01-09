@@ -21,6 +21,7 @@ import com.decode.nextjob.helpers.helperNet
 import com.decode.nextjob.helpers.helpers
 import com.decode.nextjob.viewmodels.IndeedJosVM
 import com.decode.nextjob.viewmodels.MainActivityViewModel
+import com.google.android.material.chip.ChipGroup
 import io.github.horaciocome1.simplerecyclerviewtouchlistener.addOnItemClickListener
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
            setContentView(R.layout.activity_main)
            if(helperNet.isNetworkAvailable(this)){
              initialize()
+
            }else{
                showdialog(this)
            }
@@ -66,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initialize(){
-
+        controllerTheChips()
         txvShowAllRemoteJobs.setOnClickListener {
             startActivity(Intent(this, AllRemoteJobsActivity::class.java))
         }
@@ -151,7 +153,7 @@ class MainActivity : AppCompatActivity() {
     fun allJobs(){
         shimerRecentlyJobs.visibility=View.VISIBLE
         shimerRecentlyJobs.startShimmer()
-        indeed.fetchAllJobs().observe(this,{
+        indeed.fetchAllJobs("android").observe(this,{
             allJobsAdapter.setDataList(it)
             shimerRecentlyJobs.stopShimmer()
             shimerRecentlyJobs.visibility= View.GONE
@@ -178,7 +180,7 @@ class MainActivity : AppCompatActivity() {
         shimer.startShimmer()
 
 
-             indeed.fetchRemoteJobs().observe(this, Observer {
+             indeed.fetchRemoteJobs("android").observe(this, Observer {
 
                 remoteJobAdapter.setListData(it)
                 shimer.stopShimmer()
@@ -190,6 +192,26 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    fun controllerTheChips():String{
+    var jobs : String = "android"
+    chipGroup.setOnCheckedChangeListener { group, checkedId ->
+
+        when(checkedId){
+            chipAndroid.id -> jobs= "android"
+            chipBackend.id -> jobs= "backend"
+            chipFrontend.id -> jobs= "frontend"
+            chipIntern.id -> jobs= "intern"
+            chipUxDesign.id -> jobs= "design"
+        }
+    }
+        Log.d("chips",jobs)
+        return jobs
+    }
+
+
+    //(TODO) Override funtions
+
 
     override fun onResume() {
 

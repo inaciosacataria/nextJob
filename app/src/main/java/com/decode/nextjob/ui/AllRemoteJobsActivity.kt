@@ -77,7 +77,7 @@ class AllRemoteJobsActivity : AppCompatActivity() {
 
         shimer.visibility= View.VISIBLE
         shimer.startShimmer()
-        viewModel.fetchRemoteJobs().observe(this, Observer {
+        viewModel.fetchRemoteJobs("android").observe(this, Observer {
             remoteJobAdapter.setListData(it)
             shimer.stopShimmer()
             shimer.visibility= View.GONE

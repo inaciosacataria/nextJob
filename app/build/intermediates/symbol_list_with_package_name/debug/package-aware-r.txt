@@ -1813,6 +1813,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable done
 drawable edit_text_backgroud
 drawable google
 drawable grad
@@ -1988,10 +1989,14 @@ id btnShareLink
 id buttonPanel
 id cache_measures
 id cancel_button
+id cardView
+id cardView10
 id cardView3
 id cardView4
 id cardView5
 id cardView6
+id cardView9
+id cardView90
 id carryVelocity
 id center
 id center_horizontal
@@ -2004,6 +2009,12 @@ id chip
 id chip1
 id chip2
 id chip3
+id chipAndroid
+id chipBackend
+id chipFrontend
+id chipGroup
+id chipIntern
+id chipUxDesign
 id chip_group
 id chronometer
 id circle_center
@@ -2098,6 +2109,7 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
+id horizontalScrollView
 id horizontal_only
 id icon
 id icon_group
@@ -2107,6 +2119,7 @@ id ignoreRequest
 id image
 id imageButton
 id imageView
+id imageView2
 id imgCompanyNameInfo
 id imgCompanyNameMain
 id imgJobInfo
