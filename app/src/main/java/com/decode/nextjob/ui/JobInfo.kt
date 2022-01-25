@@ -69,8 +69,8 @@ class JobInfo : AppCompatActivity() {
         btnShareLink.setOnClickListener{
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "Welcome to your NextJob, apply on this role\n\nPosition: "+txvTitleJobInfo.text+"\n"+"Company: "+txvCompanyInfo.text+
-                        "\nCommitment: "+txvComitmentInfo.text+"\n\nApply now on\n"+bundle!!.getString("applyUrl")+"\n\n\nTo find more jobs download the NextJob on playstore https://bit.ly/decode-inc")
+                putExtra(Intent.EXTRA_TEXT, "*Welcome to your NextJob, apply on this role*\n\n*Position:* "+txvTitleJobInfo.text+"\n"+"*Company:* "+txvCompanyInfo.text+
+                        "\n*Commitment:* "+txvComitmentInfo.text+"\n\nApply now on\n"+bundle!!.getString("applyUrl")+"\n\n\n*To find more jobs download the NextJob on playstore* https://bit.ly/nextjob-app")
                 type = "text/plain"
             }
 

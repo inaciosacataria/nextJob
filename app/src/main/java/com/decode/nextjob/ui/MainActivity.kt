@@ -13,6 +13,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.decode.nextjob.R
 import com.decode.nextjob.adapter.AllJobsAdapter
 import com.decode.nextjob.adapter.RemoteJobAdapter
@@ -25,10 +26,10 @@ import com.google.android.material.chip.ChipGroup
 import io.github.horaciocome1.simplerecyclerviewtouchlistener.addOnItemClickListener
 
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.header.editMainSearch
+import kotlinx.android.synthetic.main.header.*
 
 
-class MainActivity : AppCompatActivity() {
+class  MainActivity : AppCompatActivity() {
 
 
     private lateinit var remoteJobAdapter:RemoteJobAdapter
@@ -36,13 +37,26 @@ class MainActivity : AppCompatActivity() {
     val  mayMainVM : MainActivityViewModel by viewModels()
     val  indeed : IndeedJosVM by viewModels()
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
            setContentView(R.layout.activity_main)
+
            if(helperNet.isNetworkAvailable(this)){
              initialize()
+               var bundle = intent.extras
+               if(bundle!=null) {
+                   Glide.with(this)
+                       .load(bundle?.get("photoUrl"))
+                       .into(imgProfile)
+               }else{
+                   Glide.with(this)
+                       .load("https://cdn-icons-png.flaticon.com/512/149/149071.png")
+                       .into(imgProfile)
+               }
 
            }else{
                showdialog(this)
@@ -80,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         allJobsAdapter= AllJobsAdapter(this,Constants.MAIN_ACTIVIY_ID)
         rcvRencentlyJobs.layoutManager=LinearLayoutManager(this)
         rcvRencentlyJobs.setHasFixedSize(true)
-        allJobs()
+        allJobs("android")
         rcvRencentlyJobs.adapter= allJobsAdapter
 
         rcvRencentlyJobs.addOnItemClickListener{ it, pos->
@@ -92,7 +106,7 @@ class MainActivity : AppCompatActivity() {
 
 
         remoteJobAdapter= RemoteJobAdapter(this,1)
-        observeRemoteData()
+        observeRemoteData("android")
         rcvMainRemoteJobs.adapter= remoteJobAdapter!!
         rcvMainRemoteJobs.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         rcvMainRemoteJobs.setHasFixedSize(true)
@@ -104,12 +118,12 @@ class MainActivity : AppCompatActivity() {
 
         editMainSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextChange(query: String): Boolean {
-                searchjobs(query)
+
                 return false
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-
+                searchjobs(query)
                 return false
             }
         })
@@ -150,48 +164,45 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    fun allJobs(){
+    fun allJobs(s: String){
         shimerRecentlyJobs.visibility=View.VISIBLE
         shimerRecentlyJobs.startShimmer()
-        indeed.fetchAllJobs("android").observe(this,{
+        indeed.fetchAllJobs(s).observe(this,{
             allJobsAdapter.setDataList(it)
+            allJobsAdapter.notifyDataSetChanged()
             shimerRecentlyJobs.stopShimmer()
             shimerRecentlyJobs.visibility= View.GONE
-            allJobsAdapter.notifyDataSetChanged()
+            Log.d("chips",it[0].job_title.toString())
         })
+    }
+
+
+
+    fun observeRemoteData(s: String){
+
+       shimer.visibility= View.VISIBLE
+        shimer.startShimmer()
+             indeed.fetchRemoteJobs(s).observe(this, Observer {
+                remoteJobAdapter.setListData(it)
+                remoteJobAdapter.notifyDataSetChanged()
+                 shimer.stopShimmer()
+                 shimer.visibility= View.GONE
+            })
     }
 
     fun searchjobs(s:String)
     {
         shimerRecentlyJobs.visibility=View.VISIBLE
         shimerRecentlyJobs.startShimmer()
-        mayMainVM.searchJobs(s).observe(this,{
-          //  allJobsAdapter.setDataList(it)
+        indeed.fetchAllJobs(s).observe(this,{
+            allJobsAdapter.setDataList(it)
+            allJobsAdapter.notifyDataSetChanged()
             shimerRecentlyJobs.stopShimmer()
             shimerRecentlyJobs.visibility= View.GONE
-         //   allJobsAdapter.notifyDataSetChanged()
+
         })
     }
 
-
-    fun observeRemoteData(){
-
-       shimer.visibility= View.VISIBLE
-        shimer.startShimmer()
-
-
-             indeed.fetchRemoteJobs("android").observe(this, Observer {
-
-                remoteJobAdapter.setListData(it)
-                shimer.stopShimmer()
-                shimer.visibility= View.GONE
-                remoteJobAdapter.notifyDataSetChanged()
-            })
-
-
-
-
-    }
 
     fun controllerTheChips():String{
     var jobs : String = "android"
@@ -204,8 +215,10 @@ class MainActivity : AppCompatActivity() {
             chipIntern.id -> jobs= "intern"
             chipUxDesign.id -> jobs= "design"
         }
-    }
         Log.d("chips",jobs)
+        allJobs(jobs)
+        observeRemoteData(jobs)
+    }
         return jobs
     }
 

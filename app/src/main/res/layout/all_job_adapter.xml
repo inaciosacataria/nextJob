@@ -10,6 +10,7 @@
     android:layout_marginTop="8dp"
     android:layout_marginRight="16dp"
 
+    android:background="#000"
     app:cardCornerRadius="12dp"
     app:cardElevation="1dp"
     tools:layout_editor_absoluteX="8dp"
