@@ -3,7 +3,11 @@
  # nextJob
  Find your dream Job
  
- Download this app on https://bit.ly/younextjob
+ Download this app on https://bit.ly/decode-inc
+ 
+ [![Play Store](https://github.com/inaciosacataria/nextJob/blob/IndeedBranch/screenshots/google-play-badge.svg)](https://bit.ly/decode-inc)
+ 
+
  
  The idea of the application is to help users find job opportunities and internships that exist on the internet in an organized way, using
  external api of credible information.
